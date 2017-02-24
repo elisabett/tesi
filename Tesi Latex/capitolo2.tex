@@ -1,7 +1,6 @@
 \chapter{Analisi del progetto preesistente}
 \thispagestyle{empty}
-\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
-\pagenumbering{arabic} 
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}} 
 
 \section{Breve descrizione degli strumenti coinvolti}
 
@@ -16,9 +15,21 @@ Una fotocamera intensificata \`e una fotocamera che al posto della pellicola fot
 Il CCD (Charged-Coupled Device) \`e un dispositivo attraverso il quale si ottiene un segnale elettrico in uscita, in seguito a una sequenza temporizzata di impulsi, grazie al quale \`e possibile ricostruire la matrice di pixel che compongono l'immagine proiettata sulla superficie del CCD stesso. Questa informazione pu\`o essere usata come segnale analogico, e quindi essere usata per riprodurre l'immagine su un monitor, oppure pu\`o essere convertita in formato digitale.
 
 \section{Principali funzioni}
-Il progetto preesistente ha le stesse funzioni del nuovo programma richieste, con alcune eccezioni per quanto riguarda la fotocamera. Quella utilizzata nel precedentemente presentava alcune funzioni che la nuova fotocamera non mette a disposizione. Ad ogni modo si descriver\`a il progetto cercando di evidenziare le funzionalità che necessitano di essere abbandonate a causa della diversità dei due strumenti.
+Il progetto preesistente ha le stesse funzioni del nuovo programma richieste, con alcune eccezioni per quanto riguarda la fotocamera. Quella utilizzata precedentemente presentava alcune funzioni che la nuova fotocamera non mette a disposizione. Ad ogni modo si descriver\`a il progetto cercando di evidenziare le funzionalit\`a che necessitano di essere abbandonate a causa della diversit\`a dei due strumenti.\\
+L'interfaccia non presenta alcuna divisione tra i controlli dei due strumenti e si possono quindi controllare simultaneamente senza alcuna distinzione. È chiaro che lo strumento che ha priorità in fase di inizializzazione è il monocromatore, in quanto composto da elementi fisici che devono essere riportati con movimenti meccanici ad una posizione di dafault; solo una volta che le lenti e la griglia all'interno dello strumento si trovano nella posizione iniziale è possibile cominciare ad utilizzare il programma.
 \subsection{Monocromatore}
+I comandi presenti per controllare il monocromatore sono gli stessi richiesti nel nuovo progetto: selezione del grating (e rispettive calibrazioni per correggere eventuali errori), impostazione della lunghezza d'onda e slit di entrata. Sono inoltre presenti dei led che mostrano eventuali errori: un errore generico in fase di inizializzazione, lunghezza d'onda inserita errata e superamento dei limiti dei valori consentiti.
+
 \subsection{Fotocamera}
+Per quanto riguarda la fotocamera si distingue fra acquisizione singola o continua ed è possibile inserire tempo di esposizione e ritardo di acquisizione dell'immagine. Si può inoltre scegliere un valore specifico di binning, fino a 1/16 per il binning verticale e fino a 1/8 per il binning orizzontale. Viene anche segnalato un'eventuale caso di saturazione con un calcolo successivo alla foto.
+
+\subsection{Altre opzioni}
+È possibile effettuare delle operazioni non collegate direttamente ai due strumenti. Oltre a visualizzare l'immagine così come è stata presa, è anche possibile visualizzare lo spettro corrispondente in seguito a determinati calcoli. Su tale spettro si possono richiedere alcune informazioni quali l'integrale su un certo intervallo della lunghezza d'onda (?), il numero di picchi rilevati al di sopra di una certa soglia, 
+È disponibile un comando per l'acquisizione del background (legato però alla fotocamera): infatti nel caso in cui lo spettro venga generato in un ambiente (visivamente) "rumoroso" si può successivamente utilizzare il suddetto dato per sottrarlo a immagini successivi, in modo da renderle il più chiaro possibile.
+
+\section{Front Panel}
+
+\section{Block Diagram}
 
 \section{Considerazioni sul progetto a livello di programmazione}
 
