@@ -17,17 +17,17 @@
 \contentsline {subsection}{\numberline {2.2.1}Monocromatore}{7}
 \contentsline {subsection}{\numberline {2.2.2}Fotocamera}{7}
 \contentsline {subsection}{\numberline {2.2.3}Altre opzioni}{7}
-\contentsline {section}{\numberline {2.3}Front Panel}{7}
-\contentsline {section}{\numberline {2.4}Block Diagram}{7}
-\contentsline {section}{\numberline {2.5}Considerazioni sul progetto a livello di programmazione}{7}
-\contentsline {chapter}{\numberline {3}Realizzazione del progetto}{1}
-\contentsline {section}{\numberline {3.1}Breve descrizione degli strumenti coinvolti}{1}
-\contentsline {subsection}{\numberline {3.1.1}Monocromatore}{1}
-\contentsline {subsection}{\numberline {3.1.2}Fotocamera}{1}
-\contentsline {section}{\numberline {3.2}Principali funzioni}{1}
-\contentsline {subsection}{\numberline {3.2.1}Monocromatore}{1}
-\contentsline {subsection}{\numberline {3.2.2}Fotocamera}{1}
-\contentsline {section}{\numberline {3.3}Considerazioni sul progetto a livello di programmazione}{1}
+\contentsline {section}{\numberline {2.3}Front Panel}{8}
+\contentsline {section}{\numberline {2.4}Block Diagram}{8}
+\contentsline {section}{\numberline {2.5}Considerazioni sul progetto a livello di programmazione}{8}
+\contentsline {chapter}{\numberline {3}Realizzazione del progetto}{9}
+\contentsline {section}{\numberline {3.1}Breve descrizione degli strumenti coinvolti}{9}
+\contentsline {subsection}{\numberline {3.1.1}Monocromatore}{9}
+\contentsline {subsection}{\numberline {3.1.2}Fotocamera}{9}
+\contentsline {section}{\numberline {3.2}Principali funzioni}{9}
+\contentsline {subsection}{\numberline {3.2.1}Monocromatore}{9}
+\contentsline {subsection}{\numberline {3.2.2}Fotocamera}{9}
+\contentsline {section}{\numberline {3.3}Considerazioni sul progetto a livello di programmazione}{9}
 \contentsline {chapter}{\numberline {4}Secondo Capitolo}{1}
 \contentsline {section}{\numberline {4.1}Prima Sezione}{1}
 \contentsline {section}{\numberline {4.2}Seconda Sezione}{1}

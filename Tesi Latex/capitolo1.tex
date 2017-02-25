@@ -1,5 +1,5 @@
 \chapter{Documento dei requisiti}
-
+\thispagestyle{empty}
 %\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
 
 Si descrive nelle seguenti sezioni la specifica dei requisiti del sistema software che si intende sviluppare.
@@ -42,4 +42,9 @@ L'interfaccia deve risultare il più intuitiva possibile, per questo si deve cerc
 Devono anche essere presenti dei comandi per il post-processing e l'analisi delle immagini acquisite. Come nel progetto preesistente è necessario visualizzare lo spettro in un grafico che abbia nell'asse orizzontale il range di lunghezza d'onda osservato e nell'asse verticale (cosa?). Inoltre deve essere possibile sottrarre un background acquisito in precedenza ed effettuare altri calcoli sullo spettro. Alla fine delle operazioni qualora ce ne sia la possibilità, si deve poter salvare i dati in un file di testo che tenga traccia dei valori calcolati per visualizzare lo spettro.
 
 \subsection{Linguaggio di programmazione}
-Il linguaggio di programmazione da utilizzare per realizzare il progetto richiesto è LabVIEW.\\ LabVIEW è un linguaggio di programmazione grafica (G - Graphical Programming Language) che utilizza un modello a flusso di dati invece di linee sequenziali di codice testuale, permettendo di scrivere codice funzionale utilizzando un layout grafico che assomiglia a un diagramma di flusso. 
+Il linguaggio di programmazione da utilizzare per realizzare il progetto richiesto è LabVIEW.\\ LabVIEW è un linguaggio di programmazione grafica (G - Graphical Programming Language) che utilizza un modello a flusso di dati invece di linee sequenziali di codice testuale, permettendo di scrivere codice funzionale utilizzando un layout grafico che assomiglia a un diagramma di flusso. \\
+L'ambiente di programmazione LabVIEW presenta due principali finestre di lavoro: front panel e block diagram. 
+\begin{description}
+\item[Front Panel]Finestra in cui si visualizza e si modifica l'interfaccia utente. Sono disponibili diversi stili e comandi per l'interazione con l'utente.
+\item[Block Diagram]Finestra in cui si compone il codice a blocchi, controlli, indicatori, subVI e moltre alte componenti. Da tale finestra è possibile effettuare il debug del codice e controllare il contenuto delle variabili.
+\end{description}
