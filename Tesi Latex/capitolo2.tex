@@ -1,5 +1,5 @@
 \chapter{Analisi del progetto preesistente}
-%\thispagestyle{empty}
+\thispagestyle{empty}
 %\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}} 
 
 \section{Breve descrizione degli strumenti coinvolti}
@@ -17,6 +17,7 @@ Il CCD (Charged-Coupled Device) \`e un dispositivo attraverso il quale si ottien
 \section{Principali funzioni}
 Il progetto preesistente ha le stesse funzioni del nuovo programma richieste, con alcune eccezioni per quanto riguarda la fotocamera. Quella utilizzata precedentemente presentava alcune funzioni che la nuova fotocamera non mette a disposizione. Ad ogni modo si descriver\`a il progetto cercando di evidenziare le funzionalit\`a che necessitano di essere abbandonate a causa della diversit\`a dei due strumenti.\\
 L'interfaccia non presenta alcuna divisione tra i controlli dei due strumenti e si possono quindi controllare simultaneamente senza alcuna distinzione. È chiaro che lo strumento che ha priorità in fase di inizializzazione è il monocromatore, in quanto composto da elementi fisici che devono essere riportati con movimenti meccanici ad una posizione di dafault; solo una volta che le lenti e la griglia all'interno dello strumento si trovano nella posizione iniziale è possibile cominciare ad utilizzare il programma.
+
 \subsection{Monocromatore}
 I comandi presenti per controllare il monocromatore sono gli stessi richiesti nel nuovo progetto: selezione del grating (e rispettive calibrazioni per correggere eventuali errori), impostazione della lunghezza d'onda e slit di entrata. Sono inoltre presenti dei led che mostrano eventuali errori: un errore generico in fase di inizializzazione, lunghezza d'onda inserita errata e superamento dei limiti dei valori consentiti.
 
@@ -24,8 +25,8 @@ I comandi presenti per controllare il monocromatore sono gli stessi richiesti ne
 Per quanto riguarda la fotocamera si distingue fra acquisizione singola o continua ed è possibile inserire tempo di esposizione e ritardo di acquisizione dell'immagine. Si può inoltre scegliere un valore specifico di binning, fino a 1/16 per il binning verticale e fino a 1/8 per il binning orizzontale. Viene anche segnalato un'eventuale caso di saturazione con un calcolo successivo alla foto.
 
 \subsection{Altre opzioni}
-È possibile effettuare delle operazioni non collegate direttamente ai due strumenti. Oltre a visualizzare l'immagine così come è stata presa, è anche possibile visualizzare lo spettro corrispondente in seguito a determinati calcoli. Su tale spettro si possono richiedere alcune informazioni quali l'integrale su un certo intervallo della lunghezza d'onda (?), il numero di picchi rilevati al di sopra di una certa soglia, 
-È disponibile un comando per l'acquisizione del background (legato però alla fotocamera): infatti nel caso in cui lo spettro venga generato in un ambiente (visivamente) "rumoroso" si può successivamente utilizzare il suddetto dato per sottrarlo a immagini successivi, in modo da renderle il più chiaro possibile.
+È possibile effettuare delle operazioni non collegate direttamente ai due strumenti. Oltre a visualizzare l'immagine così come è stata presa, è anche possibile visualizzare lo spettro corrispondente in seguito a determinati calcoli. Su tale spettro si possono richiedere alcune informazioni quali l'integrale su un certo intervallo della lunghezza d'onda, il numero di picchi rilevati al di sopra di una certa soglia; viene inoltre mostrato, senza bisogno di chiederlo, il valore del picco più alto alla lunghezza d'onda corrispondente e la FWHM (Full Width at Half Maximum), che corrisponde alla differenza fra i valori assunti dalla variabile indipendente lunghezza d'onda quando la variabile dipendente y (?) è pari a metà del suo valore massimo.
+È disponibile un comando per l'acquisizione del background (legato però alla fotocamera): infatti nel caso in cui lo spettro venga generato in un ambiente (visivamente) "rumoroso" si può successivamente utilizzare il suddetto dato per sottrarlo a immagini successive, in modo da renderle il più chiare possibile.
 
 \section{Front Panel}
 
