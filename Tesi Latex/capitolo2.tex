@@ -25,12 +25,23 @@ Per quanto riguarda la fotocamera si distingue fra acquisizione singola o contin
 
 \subsection{Altre opzioni}
 È possibile effettuare delle operazioni non collegate direttamente ai due strumenti. Oltre a visualizzare l'immagine così come è stata presa, è anche possibile visualizzare lo spettro corrispondente in seguito a determinati calcoli. Su tale spettro si possono richiedere alcune informazioni quali l'integrale su un certo intervallo della lunghezza d'onda, il numero di picchi rilevati al di sopra di una certa soglia; viene inoltre mostrato, senza bisogno di chiederlo, il valore del picco più alto alla lunghezza d'onda corrispondente e la FWHM (Full Width at Half Maximum), che corrisponde alla differenza fra i valori assunti dalla variabile indipendente lunghezza d'onda quando la variabile dipendente y (?) è pari a metà del suo valore massimo.
-È disponibile un comando per l'acquisizione del background (legato però alla fotocamera): infatti nel caso in cui lo spettro venga generato in un ambiente (visivamente) "rumoroso" si può successivamente utilizzare il suddetto dato per sottrarlo a immagini successive, in modo da renderle il più chiare possibile.
+È disponibile un comando per l'acquisizione del background (legato però alla fotocamera): infatti nel caso in cui lo spettro venga generato in un ambiente (visivamente) ``rumoroso'' si può successivamente utilizzare il suddetto dato per sottrarlo a immagini successive, in modo da renderle il più chiare possibile.
 
-\section{Front Panel}
+\section {Codice del progetto preesistente}
+Si analizza nella seguenti sezioni il codice del progetto preesistente, al fine di giustificare la scelta di progettazione fatta successivamente. La descrizione del codice si articola fra analisi del front panel e del block diagram, che sono i due ambienti di programmazione principale del linguaggio \emph{LabVIEW}.
 
+\subsection{Front Panel}
+\textbf{------- inserire foto front panel -------}
+Il front panel è diviso in blocchi ideali che non dividono veramente il codice ma danno all'utente tale impressione.\\
+In alto si trova una tab control che mostra, a seconda della selezione, l'immagine acquisita oppure lo spettro; per visualizzare lo spettro dopo aver l'immagine e viceversa è necessario riacquisire i dati. Nella sezione dedicata allo spettro sono presenti tre indicatori che mostrano il valore del picco massimo alla lunghezza d'onda corrispondente e il valore della FWHM in mm.\\
+La prima fascia di pannelli è composta da tre parti. La prima contiene un bottone booleano con cui si richiede il numero di picchi oltre una certa soglia, i cui valori vengono visualizzati in indicatori di array. La seconda permette di inserire gli estremi di un intervallo di lunghezza d'onda e di richiederne, attraverso un bottone booleano, l'integrale. La terza parte non è delimitata da un vero e proprio pannello ma contiene due indicatori di versione (main e boot) del monocromatore, un indicatore della acquisizioni fino a quel momento e il bottone booleano di uscita.\\
+La seconda fascia è divisa in due parti. La prima, dedicata alla fotocamera, contiene un bottone booleano per acquisizione singola e uno per quella continua, due controlli e rispettivi indicatori per ritardo ed esposizione, due quadranti per impostare il binning verticale e orizzontale, un led di indicazione di un'eventuale saturazione e un controllo per inserire il numero di pixel su cui fare la media per generare lo spettro. La seconda parte contiene invece controlli e indicatori per il monocromatore: bottone booleano per il grating (1200 o 2400) e rispettivi controlli per inserire la calibrazione in entrambi i casi, un controllo per inserire la lunghezza d'onda e uno per la slit di entrata, due indicatori per mostrarne i valori reali, e tre led che indicano se il monocromatore è stato correttamente inizializzato o se sono presenti errori generici, lunghezza d'onda non valida e superamento dei limiti consentiti.\\
+La terza fascia è divisa in quattro parti. Nella prima c'è la possibilità di salvare i dati con un file path predefinito (calcolato secondo le impostazioni del programma) oppure da inserire manualmente. Nella seconda parte è possibile selezionare il modo di acquisizione della foto, via software (impostazione di dafault), trigger esterno al fronte di salita o trigger esterno al fronte di discesa; con un bottone booleano si modifica la modalità e un led indica se il programma è in attesa di un trigger. La quarte parte indica la temperatura del CCD e della board (?) della camera.
 
-\section{Block Diagram}
+\subsection{Block Diagram}
+\textbf{------- inserire foto block diagram -------}
+Il block diagram è composto di una macro flat sequence (sequenza che forza il flusso dei dati in una determinata sequenza scelta dal programmatore) divisa in tre blocchi: il primo che delimita l'inizializzazione degli strumenti, il secondo contiene il codice principale del programma, e il terzo chiude in modo corretto la fotocamera.\\
+
 
 \section{Considerazioni sul progetto a livello di programmazione}
 
