@@ -23,24 +23,29 @@
 \contentsline {subsubsection}{Primo blocco}{9}
 \contentsline {subsubsection}{Secondo blocco}{10}
 \contentsline {subsubsection}{Terzo blocco}{12}
-\contentsline {section}{\numberline {2.4}Considerazioni sul progetto a livello di programmazione}{12}
-\contentsline {chapter}{\numberline {3}Realizzazione del progetto}{13}
-\contentsline {section}{\numberline {3.1}Breve descrizione degli strumenti coinvolti}{13}
-\contentsline {subsection}{\numberline {3.1.1}Monocromatore}{13}
-\contentsline {subsection}{\numberline {3.1.2}Fotocamera}{13}
-\contentsline {section}{\numberline {3.2}Principali funzioni}{13}
-\contentsline {subsection}{\numberline {3.2.1}Monocromatore}{13}
-\contentsline {subsection}{\numberline {3.2.2}Fotocamera}{13}
-\contentsline {section}{\numberline {3.3}Considerazioni sul progetto a livello di programmazione}{13}
-\contentsline {chapter}{\numberline {4}Secondo Capitolo}{1}
-\contentsline {section}{\numberline {4.1}Prima Sezione}{1}
-\contentsline {section}{\numberline {4.2}Seconda Sezione}{1}
-\contentsline {section}{\numberline {4.3}Altra Sezione}{2}
-\contentsline {subsection}{\numberline {4.3.1}Altra SottoSezione}{2}
+\contentsline {section}{\numberline {2.4}Considerazioni sul progetto a livello di programmazione}{13}
+\contentsline {chapter}{\numberline {3}Fase preliminare alla realizzazione del progetto}{15}
+\contentsline {section}{\numberline {3.1}Breve descrizione dello strumento}{15}
+\contentsline {section}{\numberline {3.2}Descrizione dell'esempio fornito}{15}
+\contentsline {subsection}{\numberline {3.2.1}Front Panel}{15}
+\contentsline {subsection}{\numberline {3.2.2}Block Diagram}{16}
+\contentsline {chapter}{\numberline {4}Realizzazione del progetto}{17}
+\contentsline {section}{\numberline {4.1}Breve descrizione degli strumenti coinvolti}{17}
+\contentsline {subsection}{\numberline {4.1.1}Monocromatore}{17}
+\contentsline {subsection}{\numberline {4.1.2}Fotocamera}{17}
+\contentsline {section}{\numberline {4.2}Principali funzioni}{17}
+\contentsline {subsection}{\numberline {4.2.1}Monocromatore}{17}
+\contentsline {subsection}{\numberline {4.2.2}Fotocamera}{17}
+\contentsline {section}{\numberline {4.3}Considerazioni sul progetto a livello di programmazione}{17}
+\contentsline {chapter}{\numberline {5}Secondo Capitolo}{1}
+\contentsline {section}{\numberline {5.1}Prima Sezione}{1}
+\contentsline {section}{\numberline {5.2}Seconda Sezione}{1}
+\contentsline {section}{\numberline {5.3}Altra Sezione}{2}
+\contentsline {subsection}{\numberline {5.3.1}Altra SottoSezione}{2}
 \contentsline {subsubsection}{SottoSottoSezione}{2}
-\contentsline {section}{\numberline {4.4}Altra Sezione}{2}
-\contentsline {section}{\numberline {4.5}Altra Sezione}{3}
-\contentsline {subsection}{\numberline {4.5.1}Listati dei programmi}{3}
+\contentsline {section}{\numberline {5.4}Altra Sezione}{2}
+\contentsline {section}{\numberline {5.5}Altra Sezione}{3}
+\contentsline {subsection}{\numberline {5.5.1}Listati dei programmi}{3}
 \contentsline {subsubsection}{Primo Listato}{3}
 \contentsline {chapter}{Conclusioni}{5}
 \contentsline {chapter}{\numberline {A}Prima Appendice}{7}
