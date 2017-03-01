@@ -39,6 +39,4 @@
 \contentsline {section}{\numberline {4.3}Front Panel}{22}
 \contentsline {section}{\numberline {4.4}Block Diagram}{23}
 \contentsline {chapter}{\numberline {5}Conclusioni}{25}
-\contentsline {chapter}{\numberline {A}Prima Appendice}{27}
-\contentsline {chapter}{\numberline {B}Seconda Appendice}{29}
-\contentsline {chapter}{Bibliografia}{31}
+\contentsline {chapter}{Bibliografia}{27}

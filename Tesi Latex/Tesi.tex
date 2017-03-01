@@ -26,9 +26,7 @@
 \usepackage{amsthm}
 
 \oddsidemargin=30pt \evensidemargin=20pt%impostano i margini
-\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per la sillabazione: tra parentesi 
-					   %vanno inserite come nell'esempio le parole 
-%					   %che latex non riesce a tagliare nel modo giusto andando a capo.
+\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per 
 
 % comandi per l'impostazione
 %   della pagina, vedi il manuale
@@ -51,19 +49,17 @@
 \include{introduzione}
 %non numera l'ultima pagina sinistra
 \clearpage{\pagestyle{empty}\cleardoublepage}
+
+\pagenumbering{roman}
+%indice
 \tableofcontents                        %crea l'indice
-%imposta l'intestazione di pagina
-%\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
-\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
-INDICE}}
+
 %non numera l'ultima pagina sinistra
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \listoffigures                          %crea l'elenco delle figure
 %non numera l'ultima pagina sinistra
 \clearpage{\pagestyle{empty}\cleardoublepage}
-\listoftables                           %crea l'elenco delle tabelle
-%non numera l'ultima pagina sinistra
-\clearpage{\pagestyle{empty}\cleardoublepage}
+
 \pagenumbering{arabic} 
 
 \include{capitolo1}
@@ -72,23 +68,8 @@ INDICE}}
 \include{capitolo4}
 \include{capitolo5}
 
-\appendix                               %imposta le appendici
-\chapter{Prima Appendice}               %crea l'appendice
-In questa Appendice non si \`e utilizzato il comando:\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\verb"" è equivalente all'
-                                        %   ambiente verbatim,
-                                        %   ma si utilizza all'interno
-                                        %   di un discorso.
-\verb"\clearpage{\pagestyle{empty}\cleardoublepage}", ed infatti
-l'ultima pagina 8 ha l'intestazione con il numero di pagina in
-alto.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-\rhead[\fancyplain{}{\bfseries \thechapter \:Prima Appendice}]
-{\fancyplain{}{\bfseries\thepage}}
-\chapter{Seconda Appendice}             %crea l'appendice
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-\rhead[\fancyplain{}{\bfseries \thechapter \:Seconda Appendice}]
-{\fancyplain{}{\bfseries\thepage}}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
 \begin{thebibliography}{90}             %crea l'ambiente bibliografia
 \rhead[\fancyplain{}{\bfseries \leftmark}]{\fancyplain{}{\bfseries
 \thepage}}
