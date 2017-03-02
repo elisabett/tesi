@@ -37,3 +37,14 @@ I shift register del ciclo esterno sono cinque: \textit{Pixel} contiene la matri
 Se infine viene arrestato il ciclo con il comando \textit{Exit}, viene eseguita l'ultima flat sequence che resetta i valori dei controlli di acquisizione delle immagini e viene eseguito anche il subVI \emph{ExitCamera.vi} per la chiusura graceful del programma e il rilascio delle risorse.
 
 \subsection{Descrizione subVI}
+Si descrivono di seguito i singoli subVI e le loro funzionalità.
+\begin{description}
+\item[\textit{InitMono.vi}] Il compito di questo subVI è quello di interrogare il monocromatore riportandolo al suo stato di default. Rispetto al codice presente nel progetto antecedente è stato leggermente modificato. Sono state eliminate tutte le flat sequence, che forzano il flusso logico dei dati. Dopo che è stato invocato il subVI del monocromatore \emph{Start Up.vi}, il led \textit{Init} viene impostato a true solo ed esclusivamente se non sono presenti errori nella matrice di errori restituita dallo stesso.
+\item[\textit{SettingMono.vi}] Anche questo subVI è stato modificato rispetto al codice precedente eliminando tutte le flat sequence. La descrizione di tale subVI è la stessa illustrata \textbf{---METTERE RIFERIMENTO---}
+\item[\textit{CreateImage.vi}] In seguito all'invocazione del subVI della fotocamera \emph{GetExposure.vi} viene invocata la funzione \emph{Draw Unflattened Pixmap.vi} per creare l'immagine vera e propria che possa essere visualizzata in un indicatore apposito.
+\item[\textit{PeaksDetector.vi}] Lo scopo di questo subVI è quello di trovare, attraverso la funzione \emph{Waveform Peak Detection.vi} 
+\item[\textit{FindWavefromIntegral.vi}]
+\item[\textit{CreateSpectrum.vi}]
+\item[\textit{}]
+\item[\textit{}] 
+\end{description}
