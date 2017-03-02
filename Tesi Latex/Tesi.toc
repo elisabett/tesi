@@ -38,5 +38,6 @@
 \contentsline {section}{\numberline {4.2}Struttura del progetto}{21}
 \contentsline {section}{\numberline {4.3}Front Panel}{22}
 \contentsline {section}{\numberline {4.4}Block Diagram}{23}
-\contentsline {chapter}{\numberline {5}Conclusioni}{25}
-\contentsline {chapter}{Bibliografia}{27}
+\contentsline {subsection}{\numberline {4.4.1}Descrizione subVI}{25}
+\contentsline {chapter}{\numberline {5}Conclusioni}{27}
+\contentsline {chapter}{Bibliografia}{29}

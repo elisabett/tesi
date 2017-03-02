@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=capitolo1.tex
+Document=Tesi.tex
 
 [Frame0_View0,0]
-TopLine=27
-Cursor=2648
+TopLine=68
+Cursor=2372
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=capitolo2.tex
+Document=Frontespizio.tex
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=16904
+Cursor=461
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=dedica.tex
+Document=capitolo5.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=385
+Cursor=44
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=introduzione.tex
+Document=capitolo4.tex
 
 [Frame3_View0,0]
 TopLine=0
-Cursor=21
+Cursor=364
 
 [Frame4]
 Flags=0
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=Tesi.tex
+Document=capitolo3.tex
 
 [Frame4_View0,0]
-TopLine=40
-Cursor=1933
+TopLine=0
+Cursor=7488
 
 [Frame5]
 Flags=0
@@ -101,14 +101,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=Frontespizio.tex
+Document=capitolo1.tex
 
 [Frame5_View0,0]
 TopLine=0
-Cursor=999
+Cursor=51
 
 [Frame6]
 Flags=0
@@ -119,14 +119,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=capitolo4.tex
+Document=capitolo2.tex
 
 [Frame6_View0,0]
 TopLine=0
-Cursor=437
+Cursor=337
 
 [Frame7]
 Flags=0
@@ -137,14 +137,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=capitolo3.tex
+Document=dedica.tex
 
 [Frame7_View0,0]
-TopLine=64
-Cursor=7488
+TopLine=0
+Cursor=385
 
 [Frame8]
 Flags=0
@@ -155,16 +155,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1643
-NormalPos.bottom=715
+NormalPos.right=681
+NormalPos.bottom=705
 Class=LaTeXView
-Document=capitolo5.tex
+Document=introduzione.tex
 
 [Frame8_View0,0]
 TopLine=0
-Cursor=20
+Cursor=21
 
 [SessionInfo]
 FrameCount=9
-ActiveFrame=4
+ActiveFrame=0
 
