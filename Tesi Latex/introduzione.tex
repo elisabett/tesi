@@ -1,17 +1,16 @@
-\pagenumbering{roman}                   %serve per mettere i numeri romani
-
+%\pagenumbering{roman}                   %serve per mettere i numeri romani
 
 \chapter*{Introduzione}                 %crea l'introduzione (un capitolo
                                         %   non numerato)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-\rhead[\fancyplain{}{\bfseries
-INTRODUZIONE}]{\fancyplain{}{\bfseries\thepage}}
-\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
-INTRODUZIONE}}
+%\rhead[\fancyplain{}{\bfseries
+%INTRODUZIONE}]{\fancyplain{}{\bfseries\thepage}}
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
+%INTRODUZIONE}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%aggiunge la voce Introduzione
                                         %   nell'indice
 \addcontentsline{toc}{chapter}{Introduzione}
-Nell'ambito dello studio dei plasmi generati tramite scariche elettriche (?) si rivela necessario catturare gli spettri generati da suddette interazioni per studiarne diverse proprietà quali composizione e temperatura. Per effettuare tali misurazioni sono necessari due strumenti: un monocromatore che scomponga e rifletta la fonte di luce in input e una fotocamera che catturi l'immagine dello spettro. \\
+Nell'ambito dello studio dei plasmi generati tramite scariche elettriche si rivela necessario catturare gli spettri generati da suddette interazioni per studiarne diverse proprietà quali composizione e temperatura. Per effettuare tali misurazioni sono necessari due strumenti: un monocromatore che scomponga e rifletta la fonte di luce in input e una fotocamera che catturi l'immagine dello spettro. \\
 Risulta quindi necessaria un'interfaccia utente in grado di controllare simultaneamente i due strumenti in modo da facilitare il percorso di acquisizione e manipolazione degli spettri. Lo scopo della tesi è implementare l'interfaccia richiesta attraverso il linguaggio di programmazione grafica LabVIEW, con l'ausilio delle API dei due strumenti.\\
 È presente un progetto preesistente che realizza l'interfaccia di controllo del monocromatore e di una fotocamera non intensificata. A partire da questo progetto se ne è realizzato uno nuovo che riutilizza alcune parti del precedente, considerando lo stesso monocromatore e una nuova fotocamera intensificata.\\
 A partire quindi dal programma esistente si è effettuato uno studio dello stesso per poterlo così adattare alla nuova fotocamera. Dopo un primo tentativo di riutilizzo e refactoring si è preferito realizzare un programma ex novo, modificando anche alcuni elementi dell'interfaccia grafica. Chiaramente si sono mantenuti alcuni elementi, in particolare quelli legati al monocromatore, dal momento che lo strumento è rimasto lo stesso così come le librerie ad esso associate.
