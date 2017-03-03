@@ -1,6 +1,11 @@
 \chapter{Conclusioni}
 \thispagestyle{empty}
 
+È stato realizzato il codice per il progetto richiesto: interfaccia grafica di controllo per una fotocamera intensificata e un monocromatore in ambiente LabVIEW. Per poter realizzare il programma è stata molto utile la partecipazione ad un corso su tale linguaggio per avere una conoscenza accademica oltre che concreta; tale corso ha anche permetto di conseguire la certificazione base di CLAD, Certified LabVIEW Associate Developer. 
 
+\section{Risultati ottenuti}
+Quasi tutte le specifiche richieste sono state soddisfatte. Il programma controlla correttamente entrambi gli strumenti e permette di salvare i dati acquisiti. Il monocromatore può essere settato correttamente controllando i dati prima di inviarli allo strumento, evitando così di danneggiare lo strumento. Per la fotocamera sono state riprese quasi tutte le opzioni presenti nel software proprietario. Nella fase di post processing dell'immagine è possibile visualizzare gli stessi calcoli presenti nel progetto preesistente.\\
+La sottrazione del background deve ancora essere verificata in quanto la nuova fotocamera non dà la possibilità di acquisire un background, è necessario effettuare questa operazione manualmente. Rispetto al progetto preesistente è stato eliminato il comando di \textit{Normalize Flat} in quanto considerato poco rilevante al fine degli scopi di ricerca.
 
-\section{}
+\section{Sviluppi futuri}
+Il programma può senza dubbio essere migliorato, sia dal punto di vista del front panel che del block diagram. Per quanto riguarda il front panel si tratta di una questione prettamente estetica, che collide anche con la versione di LabVIEW installata sul calcolatore dal momento che non in tutte le versione di LabVIEW sono presenti gli stessi controlli e indicatori. Il block diagram si può considerare organico e comprensibile, è comunque sempre possibile aggiungere nuove funzionalità al programma, inclusa quella di \textit{Subtract Dark}. 
