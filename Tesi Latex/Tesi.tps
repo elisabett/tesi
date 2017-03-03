@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=Tesi.tex
 
 [Frame0_View0,0]
-TopLine=63
-Cursor=2562
+TopLine=24
+Cursor=1190
 
 [Frame1]
 Flags=0
@@ -36,7 +36,7 @@ Document=introduzione.tex
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=994
+Cursor=23
 
 [Frame2]
 Flags=0
@@ -68,11 +68,11 @@ NormalPos.top=32
 NormalPos.right=1643
 NormalPos.bottom=715
 Class=LaTeXView
-Document=capitolo2.tex
+Document=capitolo1.tex
 
 [Frame3_View0,0]
-TopLine=0
-Cursor=15735
+TopLine=46
+Cursor=6683
 
 [Frame4]
 Flags=0
@@ -86,11 +86,11 @@ NormalPos.top=32
 NormalPos.right=1643
 NormalPos.bottom=715
 Class=LaTeXView
-Document=capitolo1.tex
+Document=capitolo2.tex
 
 [Frame4_View0,0]
-TopLine=53
-Cursor=4875
+TopLine=182
+Cursor=16855
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=capitolo3.tex
 
 [Frame5_View0,0]
-TopLine=0
-Cursor=7488
+TopLine=29
+Cursor=5775
 
 [Frame6]
 Flags=0
@@ -122,11 +122,11 @@ NormalPos.top=32
 NormalPos.right=1643
 NormalPos.bottom=715
 Class=LaTeXView
-Document=Frontespizio.tex
+Document=capitolo5.tex
 
 [Frame6_View0,0]
 TopLine=0
-Cursor=461
+Cursor=44
 
 [Frame7]
 Flags=0
@@ -140,11 +140,11 @@ NormalPos.top=32
 NormalPos.right=1643
 NormalPos.bottom=715
 Class=LaTeXView
-Document=capitolo5.tex
+Document=Frontespizio.tex
 
 [Frame7_View0,0]
 TopLine=0
-Cursor=62
+Cursor=640
 
 [Frame8]
 Flags=0
@@ -161,10 +161,10 @@ Class=LaTeXView
 Document=capitolo4.tex
 
 [Frame8_View0,0]
-TopLine=75
-Cursor=10246
+TopLine=28
+Cursor=2261
 
 [SessionInfo]
 FrameCount=9
-ActiveFrame=7
+ActiveFrame=0
 

@@ -1,7 +1,6 @@
 \chapter{Analisi del progetto preesistente}
 \label{capitolo2}
-\thispagestyle{empty}
-%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}} 
+\thispagestyle{empty} 
 
 \section{Breve descrizione degli strumenti coinvolti}
 Si illustrano di seguito alcune principali caratteristiche degli strumenti coinvolti nel progetto già esistente.
@@ -33,38 +32,86 @@ Per quanto riguarda la fotocamera si distingue fra acquisizione singola o contin
 Si analizza nelle seguenti sezioni il codice del progetto preesistente, al fine di giustificare la scelta di progettazione fatta successivamente. La descrizione del codice si articola fra analisi del front panel e del block diagram, che sono i due ambienti di programmazione principale del linguaggio LabVIEW.
 
 \subsection{Front Panel}
-\textbf{------- inserire foto front panel -------}
-Il front panel è diviso in blocchi ideali che non dividono veramente il codice ma danno all'utente tale impressione.\\
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_fp.png}
+	\caption{Front Panel del progetto preesistente}
+	\label{fig:fp_old_proj}
+\end{figure}
+Il front panel in figura \ref{fig:fp_old_proj} è diviso in blocchi ideali che non dividono veramente il codice ma danno all'utente tale impressione.\\
 In alto si trova una tab control che mostra, a seconda della selezione, l'immagine acquisita oppure lo spettro; per visualizzare lo spettro dopo aver ottenuto l'immagine e viceversa è necessario riacquisire i dati. Nella sezione dedicata allo spettro sono presenti tre indicatori che mostrano il valore del picco massimo alla lunghezza d'onda corrispondente e il valore della FWHM in nm.\\
 La prima fascia di pannelli è composta da tre parti. La prima contiene un bottone booleano con cui si richiede il numero di picchi oltre una certa soglia, i cui valori vengono visualizzati in indicatori di array. La seconda permette di inserire gli estremi di un intervallo di lunghezza d'onda e di richiederne, attraverso un bottone booleano, l'integrale. La terza parte non è delimitata da un vero e proprio pannello ma contiene due indicatori di versione (main e boot) del monocromatore, un indicatore della acquisizioni fino a quel momento e il bottone booleano di uscita.\\
 La seconda fascia è divisa in due parti. La prima, dedicata alla fotocamera, contiene un bottone booleano per acquisizione singola e uno per quella continua, due controlli e rispettivi indicatori per ritardo ed esposizione, due quadranti per impostare il binning verticale e orizzontale, un led di indicazione di un'eventuale saturazione e un controllo per inserire il numero di pixel su cui fare la media per generare lo spettro. La seconda parte contiene invece controlli e indicatori per il monocromatore: bottone booleano per il grating (1200 o 2400) e rispettivi controlli per inserire la calibrazione in entrambi i casi, un controllo per inserire la lunghezza d'onda e uno per la slit di entrata, due indicatori per mostrarne i valori reali, e tre led che indicano se il monocromatore è stato correttamente inizializzato o se sono presenti errori generici, lunghezza d'onda non valida e superamento dei limiti consentiti.\\
 La terza fascia è divisa in quattro parti. Nella prima c'è la possibilità di salvare i dati con un file path predefinito (calcolato secondo le impostazioni del programma) oppure da inserire manualmente. Nella seconda parte è possibile selezionare il modo di acquisizione della foto, via software (impostazione di dafault), trigger esterno al fronte di salita o trigger esterno al fronte di discesa; con un bottone booleano si modifica la modalità e un led indica se il programma è in attesa di un trigger. La quarte parte indica la temperatura del CCD e della scheda PCI del calcolatore.
 
 \subsection{Block Diagram}
-\textbf{------- inserire foto block diagram -------}
-Il block diagram è composto di una macro flat sequence (sequenza che forza il flusso dei dati in una determinata sequenza scelta dal programmatore) divisa in tre blocchi: il primo che delimita l'inizializzazione degli strumenti, il secondo contiene il codice principale del programma, e il terzo chiude in modo corretto la fotocamera.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd.png}
+	\caption{Block Diagram del progetto preesistente}
+	\label{fig:bd_old_proj}
+\end{figure}
+Il block diagram in figura \ref{fig:bd_old_proj} è composto di una macro flat sequence (sequenza che forza il flusso dei dati in una determinata sequenza scelta dal programmatore) divisa in tre blocchi: il primo che delimita l'inizializzazione degli strumenti, il secondo contiene il codice principale del programma, e il terzo chiude in modo corretto la fotocamera.
 
 \subsubsection{Primo blocco}
-Questo blocco è dedicato principalmente all'inizializzazione del monocromatore. È presente un'ulteriore flat sequence di 3 blocchi. Nel primo viene invocato il subVI \emph{StartUp.vi} che inizializza il monocromatore e riporta i componenti interni alle posizioni di default. Questo subVI restituisce in uscita una lista di errori e le informazioni riguardo il numero di versione del monocromatore. Nel secondo blocco è presente un timer che mette in pausa il programma per 1 secondo, per permettergli di ricevere la risposta del monocromatore, e nel terzo blocco il led di inizializzazione viene commutato a vero per indicare l'avvenuta inizializzazione dello strumento.\\
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_primoblocco.png}
+	\caption{Block Diagram del progetto preesistente, primo blocco}
+	\label{fig:bd_old_proj_firstBlock}
+\end{figure}
+Questo blocco, in figura \ref{fig:bd_old_proj_firstBlock}, è dedicato principalmente all'inizializzazione del monocromatore. È presente un'ulteriore flat sequence di 3 blocchi. Nel primo viene invocato il subVI \emph{StartUp.vi} che inizializza il monocromatore e riporta i componenti interni alle posizioni di default. Questo subVI restituisce in uscita una lista di errori e le informazioni riguardo il numero di versione del monocromatore. Nel secondo blocco è presente un timer che mette in pausa il programma per 1 secondo, per permettergli di ricevere la risposta del monocromatore, e nel terzo blocco il led di inizializzazione viene commutato a vero per indicare l'avvenuta inizializzazione dello strumento.\\
 Oltre al subVI del monocromatore ne vengono chiamati altri due che riguardano la fotocamera: \emph{SCSetBoard.vi} e \emph{SCSetMode.vi} servono per inizializzare la scheda della fotocamera e danno in uscita un cluster che contiene eventuali errori.\\
 Al di fuori di questa flat sequence è presente del codice per caricare un file che contiene dati utilizzati successivamente per compiere alcuni calcoli.
 
 \subsubsection{Secondo blocco}
-Questo blocco è composto da un ciclo con al suo interno un'altra flat sequence. Il ciclo while è necessario per rendere il programma sensibile in qualsiasi momento al cambiamento di qualche impostazione (switch di un bottone booleano o del valore di un controllo); viene bloccato solo quando viene invocato lo stop, con l'apposito bottone. La flat sequence all'interno del ciclo è divisa in cinque blocchi che si descrivono qui di seguito.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_secondoblocco.png}
+	\caption{Block Diagram del progetto preesistente, secondo blocco}
+	\label{fig:bd_old_proj_scndBlock}
+\end{figure}
+Questo blocco, in figura \ref{fig:bd_old_proj_scndBlock}, è composto da un ciclo con al suo interno un'altra flat sequence. Il ciclo while è necessario per rendere il programma sensibile in qualsiasi momento al cambiamento di qualche impostazione (switch di un bottone booleano o del valore di un controllo); viene bloccato solo quando viene invocato lo stop, con l'apposito bottone. La flat sequence all'interno del ciclo è divisa in cinque blocchi che si descrivono qui di seguito.
 \begin{itemize}
-	\item Primo blocco. Contiene un ulteriore ciclo while. All'interno di questo ciclo troviamo alcune case structure che vengono eseguite solo nel caso in cui il controllo a cui sono associate assume un certo valore. La case structure associata al bottone booleano \textit{Save} permette di salvare i dati qualora questo venga premuto; il nome con cui viene salvato il file viene costruito dalla funzione di concatenazione di stringhe che ha in ingresso le impostazioni caratteristiche del programma nel momento in cui si decide di salvare. La case structure associata al bottone booleano \textit{Waveform Integral} calcola, se richiesto, l'integrale della lunghezza d'onda su un intervallo specificato. È presente una case structure associata a un'ulteriore bottone booleano di \textit{Save} che però al suo interno manca della funzione di concatenazione, il path del file viene infatti inserito manualmente dall'utente in un apposito controllo. Nella case structure associata al controllo booleano \textit{Load Coeff} è presente una funzione per caricare un file con certi valori che possono essere usati successivamente nel programma. La case structure associata al controllo \textit{Peak Detector} calcola, attraverso il subVI \emph{Waveform Peak Detection.vi} il numero di picchi sopra una certa soglia con relativa lunghezza d'onda. Un'altra case structure associata al controllo booleano \textit{Grating} discrimina in base al valore del grating il valore da dare in ingresso al monocromatore. È presente infatti un'altra flat sequence divisa in quattro blocchi: nel primo viene invocato il subVI \emph{Port \& Grating.vi} per impostare il grating e il tipo di input del monocromatore, nel secondo attraverso il subVI \emph{Spectral GOTO.vi} si richiede al monocromatore di portare i componenti interni alle posizioni inserite dell'utente, nel terzo con il subVI \emph{Slits.vi} si imposta la slit di entrata, nel quarto il subVI \emph{Spectral Position.vi} restituisce la lunghezza d'onda effettiva a cui si trova il monocromatore.
-	\item Secondo blocco. Completamente dedicato alla fotocamera. Dapprima vengono invocati i subVI \emph{SCStopCoC.vi} e \emph{SCGetStatus.vi} che restituiscono le informazioni di temperatura e di due componenti della fotocamera. In seguito alla costruzione di un cluster contente le impostazioni della fotocamera vengono invocati i subVI \emph{New Delay and exposure formatter.vi} per la formattazione del ritardo e del tempo di esposizione e \emph{SCSetNewCoC.vi} per inviare le impostazioni alla fotocamera. L'ultimo subVI chiamato è \emph{SCRun.vi} che, come suggerisce il nome stesso, fa partire la fotocamera.
-	\item Terzo blocco. Anche questo riguarda solo la fotocamera e contiene tre subVI. Il primo \emph{SCGetImageStatus.vi} è wrappato all'interno di un ciclo while ed è il subVI che permette l'acquisizione vera e proprio dell'immagine. I dati acquisiti con questo subVI vengono poi passati al subVI successivo, \emph{SCGetImageSize.vi}, che restituisce le dimensioni in pixel dell'immagine. I dati che escono da questo subVI sono date in ingresso al successivo, \emph{SCGet12BitImage}, che restituisce l'immagine. Infine attraverso una case structure viene commutato il valore del led \textit{Saturation} in base al valore dei pixel risultati dall'ultimo subVI.
-	\item Quarto blocco. Contiene una case structure associata al bottone booleano \textit{Grating} che calcola i valori da inserire nel grafico che mostra lo spettro. Tali calcoli vengono effettuati a partire dalla dimensione della foto (che varia se è stato utilizzato un particolare binning) e dal valore di ogni pixel; per prima cosa vengono calcolati i valori delle lunghezze d'onda da visualizzare sull'asse orizzontale del grafico, in modo speculare rispetto al centro dell'immagine, e in seguito viene calcolata una media di un certo numero di pixel (dati dal controllo \textit{Pixel to Average}) per i valori da visualizzare nell'asse verticale del grafico.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_secondoblocco1.png}
+	\caption{Block Diagram del progetto preesistente, secondo blocco, primo blocco della flat sequence interna}
+	\label{fig:bd_old_proj_scndBlock1}
+\end{figure}
+	\item Primo blocco, figura \ref{fig:bd_old_proj_scndBlock1}. Contiene un ulteriore ciclo while. All'interno di questo ciclo troviamo alcune case structure che vengono eseguite solo nel caso in cui il controllo a cui sono associate assume un certo valore. La case structure associata al bottone booleano \textit{Save} permette di salvare i dati qualora questo venga premuto; il nome con cui viene salvato il file viene costruito dalla funzione di concatenazione di stringhe che ha in ingresso le impostazioni caratteristiche del programma nel momento in cui si decide di salvare. La case structure associata al bottone booleano \textit{Waveform Integral} calcola, se richiesto, l'integrale della lunghezza d'onda su un intervallo specificato. È presente una case structure associata a un'ulteriore bottone booleano di \textit{Save} che però al suo interno manca della funzione di concatenazione, il path del file viene infatti inserito manualmente dall'utente in un apposito controllo. Nella case structure associata al controllo booleano \textit{Load Coeff} è presente una funzione per caricare un file con certi valori che possono essere usati successivamente nel programma. La case structure associata al controllo \textit{Peak Detector} calcola, attraverso il subVI \emph{Waveform Peak Detection.vi} il numero di picchi sopra una certa soglia con relativa lunghezza d'onda. Un'altra case structure associata al controllo booleano \textit{Grating} discrimina in base al valore del grating il valore da dare in ingresso al monocromatore. È presente infatti un'altra flat sequence divisa in quattro blocchi: nel primo viene invocato il subVI \emph{Port \& Grating.vi} per impostare il grating e il tipo di input del monocromatore, nel secondo attraverso il subVI \emph{Spectral GOTO.vi} si richiede al monocromatore di portare i componenti interni alle posizioni inserite dell'utente, nel terzo con il subVI \emph{Slits.vi} si imposta la slit di entrata, nel quarto il subVI \emph{Spectral Position.vi} restituisce la lunghezza d'onda effettiva a cui si trova il monocromatore.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_secondoblocco2.png}
+	\caption{Block Diagram del progetto preesistente, secondo blocco, secondo blocco della flat sequence interna}
+	\label{fig:bd_old_proj_scndBlock2}
+\end{figure}
+	\item Secondo blocco, figura \ref{fig:bd_old_proj_scndBlock2}. Completamente dedicato alla fotocamera. Dapprima vengono invocati i subVI \emph{SCStopCoC.vi} e \emph{SCGetStatus.vi} che restituiscono le informazioni di temperatura e di due componenti della fotocamera. In seguito alla costruzione di un cluster contente le impostazioni della fotocamera vengono invocati i subVI \emph{New Delay and exposure formatter.vi} per la formattazione del ritardo e del tempo di esposizione e \emph{SCSetNewCoC.vi} per inviare le impostazioni alla fotocamera. L'ultimo subVI chiamato è \emph{SCRun.vi} che, come suggerisce il nome stesso, fa partire la fotocamera.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_secondoblocco3.png}
+	\caption{Block Diagram del progetto preesistente, secondo blocco, terzo blocco della flat sequence interna}
+	\label{fig:bd_old_proj_scndBlock3}
+\end{figure}
+	\item Terzo blocco, in figura \ref{fig:bd_old_proj_scndBlock3}. Anche questo riguarda solo la fotocamera e contiene tre subVI. Il primo \emph{SCGetImageStatus.vi} è wrappato all'interno di un ciclo while ed è il subVI che permette l'acquisizione vera e proprio dell'immagine. I dati acquisiti con questo subVI vengono poi passati al subVI successivo, \emph{SCGetImageSize.vi}, che restituisce le dimensioni in pixel dell'immagine. I dati che escono da questo subVI sono date in ingresso al successivo, \emph{SCGet12BitImage}, che restituisce l'immagine. Infine attraverso una case structure viene commutato il valore del led \textit{Saturation} in base al valore dei pixel risultati dall'ultimo subVI.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_secondoblocco4.png}
+	\caption{Block Diagram del progetto preesistente, secondo blocco, quarto blocco della flat sequence interna}
+	\label{fig:bd_old_proj_scndBlock4}
+\end{figure}
+	\item Quarto blocco, figura \ref{fig:bd_old_proj_scndBlock4}. Contiene una case structure associata al bottone booleano \textit{Grating} che calcola i valori da inserire nel grafico che mostra lo spettro. Tali calcoli vengono effettuati a partire dalla dimensione della foto (che varia se è stato utilizzato un particolare binning) e dal valore di ogni pixel; per prima cosa vengono calcolati i valori delle lunghezze d'onda da visualizzare sull'asse orizzontale del grafico, in modo speculare rispetto al centro dell'immagine, e in seguito viene calcolata una media di un certo numero di pixel (dati dal controllo \textit{Pixel to Average}) per i valori da visualizzare nell'asse verticale del grafico.
 	\textbf{Mancano le formule da inserire}
 In questa case structure ne è contenuta anche una associata al bottone booleano \textit{Subtract Dark} per eliminare un eventuale background acquisito in precedenza. 
-	\item Quinto blocco. Consente al programma di visualizzare l'immagine o lo spettro, in base alla scelta dell'utente. In questo punto del programma vengono anche effettuati i calcoli dei valori \textit{FWHM}, \textit{Max Peak} e \textit{WL}.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/spectra__11_bd_secondoblocco5.png}
+	\caption{Block Diagram del progetto preesistente, secondo blocco, quinto blocco della flat sequence interna}
+	\label{fig:bd_old_proj_scndBlock5}
+\end{figure}
+	\item Quinto blocco, figura \ref{fig:bd_old_proj_scndBlock5}. Consente al programma di visualizzare l'immagine o lo spettro, in base alla scelta dell'utente. In questo punto del programma vengono anche effettuati i calcoli dei valori \textit{FWHM}, \textit{Max Peak} e \textit{WL}.
 \end{itemize}
 
 \subsubsection{Terzo blocco}
-Questo blocco contiene solamente il subVI \emph{SCSetMode.vi} che termina il funzionamento della fotocamera attraverso il valore adatto di un enumerativo. Anche se quest'ultimo passaggio potrebbe sembrare inutile è sempre bene ricordare che tutti i programmi che vengono eseguiti impiegano un certo numero di risorse: utilizzare le giuste funzioni o i giusti subVI di chiusura anche per gli strumenti coinvolti permette di liberare le risorse impegnate senza scansando il rischio di un uso ridondante della memoria.
+\begin{figure} [h]
+	\includegraphics[width=0.5\linewidth]{img/spectra__11_bd_terzoblocco.png}
+	\caption{Block Diagram del progetto preesistente, terzo blocco}
+	\label{fig:bd_old_proj_thirdBlock}
+\end{figure}
+Questo blocco, in figura \ref{fig:bd_old_proj_thirdBlock}, contiene solamente il subVI \emph{SCSetMode.vi} che termina il funzionamento della fotocamera attraverso il valore adatto di un enumerativo. Anche se quest'ultimo passaggio potrebbe sembrare inutile è sempre bene ricordare che tutti i programmi che vengono eseguiti impiegano un certo numero di risorse: utilizzare le giuste funzioni o i giusti subVI di chiusura anche per gli strumenti coinvolti permette di liberare le risorse impegnate senza scansando il rischio di un uso ridondante della memoria.
 
-\section{Considerazioni sul progetto a livello di programmazione}
+\section{Considerazioni sul codice}
 L'analisi del codice già esistente si è resa necessaria in quanto uno dei due strumenti, in particolare il monocromatore, non è stato sostituito. Ad una prima lettura superficiale il codice risulta funzionante. Tuttavia in seguito alla partecipazione ad un corso base del linguaggio grafico LabVIEW (LabVIEW Core 1 e LabVIEW Core 2) e al suo superamento sono emersi alcuni difetti del codice.\\
 Per prima cosa è evidente che il codice nel block diagram appare molto caotico e difficile da decifrare; è servito infatti uno studio piuttosto lungo per comprendere la logica con cui è stato creato. Mancando di commenti e nomi chiari si rivela difficile intuire lo scopo di strutture, variabili e formule inserite. Un altro difetto, che si potrebbe considerare un vero e proprio errore di programmazione, è la mancata considerazione dell'andamento del flusso dei dati e l'uso massiccio di flat sequence: infatti è assolutamente sconsigliato utilizzare flat sequence in quanto forzano il flusso dei dati rischiando di creare errori altrimenti evitabili. È sempre un buon criterio di programmazione cercare di organizzare il codice in modo da sfruttare il normale flusso dei dati e manipolarlo allo scopo di ottenere la logica desiderata.\\
 Si nota anche la totale assenza di subVI che aiutano a rendere il codice flessibile e decisamente più leggibile. Facendo un confronto con qualsiasi altro linguaggio di programmazione che utilizza linee di codice scritto, un programma diviso in più file in base a determinati criteri risulta molto più ordinato, organico e leggile di un programma scritto in unico file, lungo magari migliaia di righe, in cui si fatica a comprenderne la logica e lo scopo delle variabili. Lo stesso concetto vale per VI e subVI nel linguaggio di programmazione grafico LabVIEW.

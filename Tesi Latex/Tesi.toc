@@ -20,26 +20,26 @@
 \contentsline {section}{\numberline {2.3}Codice del progetto preesistente}{10}
 \contentsline {subsection}{\numberline {2.3.1}Front Panel}{10}
 \contentsline {subsection}{\numberline {2.3.2}Block Diagram}{11}
-\contentsline {subsubsection}{Primo blocco}{12}
+\contentsline {subsubsection}{Primo blocco}{11}
 \contentsline {subsubsection}{Secondo blocco}{12}
 \contentsline {subsubsection}{Terzo blocco}{14}
-\contentsline {section}{\numberline {2.4}Considerazioni sul progetto a livello di programmazione}{15}
-\contentsline {chapter}{\numberline {3}Fase preliminare alla realizzazione del progetto}{17}
-\contentsline {section}{\numberline {3.1}Fotocamera}{17}
-\contentsline {subsection}{\numberline {3.1.1}Breve descrizione dello strumento}{17}
-\contentsline {subsection}{\numberline {3.1.2}Descrizione dell'esempio fornito}{18}
-\contentsline {subsubsection}{Front Panel}{18}
-\contentsline {subsubsection}{Block Diagram}{18}
-\contentsline {section}{\numberline {3.2}Monocromatore}{19}
-\contentsline {subsection}{\numberline {3.2.1}Front Panel}{20}
-\contentsline {subsection}{\numberline {3.2.2}Block Diagram}{21}
-\contentsline {chapter}{\numberline {4}Realizzazione del progetto}{23}
-\contentsline {section}{\numberline {4.1}Approccio iniziale}{23}
-\contentsline {section}{\numberline {4.2}Struttura del progetto}{23}
-\contentsline {section}{\numberline {4.3}Front Panel}{24}
-\contentsline {section}{\numberline {4.4}Block Diagram}{25}
-\contentsline {subsection}{\numberline {4.4.1}Descrizione subVI}{27}
-\contentsline {chapter}{\numberline {5}Conclusioni}{29}
-\contentsline {section}{\numberline {5.1}Risultati ottenuti}{29}
-\contentsline {section}{\numberline {5.2}Sviluppi futuri}{30}
-\contentsline {chapter}{Bibliografia}{31}
+\contentsline {section}{\numberline {2.4}Considerazioni sul codice}{15}
+\contentsline {chapter}{\numberline {3}Fase preliminare alla realizzazione del progetto}{25}
+\contentsline {section}{\numberline {3.1}Fotocamera}{25}
+\contentsline {subsection}{\numberline {3.1.1}Breve descrizione dello strumento}{25}
+\contentsline {subsection}{\numberline {3.1.2}Descrizione dell'esempio fornito}{26}
+\contentsline {subsubsection}{Front Panel}{26}
+\contentsline {subsubsection}{Block Diagram}{27}
+\contentsline {section}{\numberline {3.2}Monocromatore}{28}
+\contentsline {subsection}{\numberline {3.2.1}Front Panel}{29}
+\contentsline {subsection}{\numberline {3.2.2}Block Diagram}{30}
+\contentsline {chapter}{\numberline {4}Realizzazione del progetto}{33}
+\contentsline {section}{\numberline {4.1}Approccio iniziale}{33}
+\contentsline {section}{\numberline {4.2}Struttura del progetto}{33}
+\contentsline {section}{\numberline {4.3}Front Panel}{34}
+\contentsline {section}{\numberline {4.4}Block Diagram}{37}
+\contentsline {subsection}{\numberline {4.4.1}Descrizione subVI}{40}
+\contentsline {chapter}{\numberline {5}Conclusioni}{43}
+\contentsline {section}{\numberline {5.1}Risultati ottenuti}{43}
+\contentsline {section}{\numberline {5.2}Sviluppi futuri}{44}
+\contentsline {chapter}{Bibliografia}{45}

@@ -7,24 +7,52 @@ Gli strumenti coinvolti nel progetto sono quelli descritti nei capitoli preceden
 Avendo davanti un progetto già scritto e funzionante, anche se per una fotocamera diversa, il primo approccio è stato quello di cercare di integrare il vecchio programma sostituendo i subVI della fotocamera precedente con quelli della fotocamera attuale. Tale tentativo si è rivelato fin dall'inizio fallimentare in quanto il codice del vecchio progetto risulta troppo caotico e avviluppato per essere modificato senza operare ingenti cambiamenti. Si è quindi optato per una riscrittura completa del codice prendendo sempre spunto da quello già scritto per le parti riutilizzabili.
 
 \section{Struttura del progetto}
-\textbf{Inserire foto del progetto .lvproj}
-Per rendere il programma maggiormente organico e comprensibile si è deciso di creare un progetto LabVIEW: in questo modo i file e i subVI coinvolti sono raggruppati in un unico progetto, che risulta sicuramente più gestibile di un semplice insieme di file.\\
+\begin{figure} [h]
+	\includegraphics[width=0.5\linewidth]{img/Progetto.PNG}
+	\caption{Struttura del progetto}
+	\label{fig:newProj_lvproj}
+\end{figure}
+Per rendere il programma maggiormente organico e comprensibile si è deciso di creare un progetto LabVIEW: in questo modo i file e i subVI coinvolti sono raggruppati in un unico progetto (figura \ref{fig:newProj_lvproj}), che risulta sicuramente più gestibile di un semplice insieme di file.\\
 Si è creato all'inizio un VI principale, un \textit{main} che ha lo stesso scopo dei \textit{main} degli altri linguaggi di programmazione. In seguito si è cercato di creare più subVI possibile per rendere il programma leggibile e ordinato. Si descriveranno più avanti i subVI contenuti nel progetto e i loro scopi.
 
 \section{Front Panel}
 \textbf{Inserire foto del front panel}
 La struttura pensata per il front panel di questo progetto è quella dell'interfaccia grafica a \textit{tab} (controllo grafico di navigazione che permette all'utente di muoversi da un gruppo di controlli a un altro). Tale widget permette un'ideale suddivisione delle diverse aree di competenza del programma: di seguito verranno elencate con una descrizione degli elementi contenuti da ognuna.
 \begin{itemize}
-	\item \textit{Setting Mono} contiene i controlli necessari al settaggio del monocromatore. \textit{Grating} per impostare il grating (1200 o 2400) e rispettivi controlli per specificarne un eventuale calibrazione. \textit{Set Entrance Slit} e \textit{Set Wave Length} per impostare la slit di entrata e la lunghezza d'onda. \textit{Actual WL} e \textit{Slit Width} per visualizzare lunghezza d'onda e slit effettivamente inserite. Sono presenti inoltre tre led: \textit{Settings Error} indica un errore generico di settaggio, \textit{Invalid Wavelength} indica l'inserimento di una lunghezza d'onda non valida e \textit{Limits hit} evidenzia l'inserimento di un valore oltre i limiti consentiti.
-	\item \textit{Acquire Data} contiene tutti i controlli per poter impostare la fotocamera e acquisire i dati. 
-	\item \textit{Post Processing} permette di visualizzare lo spettro corrispondente all'immagine acquisita ed effettuare dei calcoli su tali dati. Con \textit{Waveform Integral} è possibile calcolare l'integrale della lunghezza d'onda su un certo intervallo. \textit{Peak Detector} consente di visualizzare il numero di picchi trovati al di sopra di una certa soglia di inserire e i loro valori. Attraverso il controllo \textit{Pixel To Average} è possibile scegliere il numero di pixel da con cui fare la media da visualizzare poi nel grafico. Sono stati mantenuti anche i controlli per acquisire il background e sottrarlo alla foto.
-	\item \textit{Save} presenta due controlli booleani: \textit{Save} salva i dati be formattati in un file di testo che può essere aperto successivamente con altri editor, \textit{Save Image} salva invece l'immagine vera e propria.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/MainSettingMono.png}
+	\caption{Front Panel del progetto, tab \textit{Setting Mono}}
+	\label{fig:newProj_fp_SettingMono}
+\end{figure}
+	\item \textit{Setting Mono}, figura \ref{fig:newProj_fp_SettingMono}, contiene i controlli necessari al settaggio del monocromatore. \textit{Grating} per impostare il grating (1200 o 2400) e rispettivi controlli per specificarne un eventuale calibrazione. \textit{Set Entrance Slit} e \textit{Set Wave Length} per impostare la slit di entrata e la lunghezza d'onda. \textit{Actual WL} e \textit{Slit Width} per visualizzare lunghezza d'onda e slit effettivamente inserite. Sono presenti inoltre tre led: \textit{Settings Error} indica un errore generico di settaggio, \textit{Invalid Wavelength} indica l'inserimento di una lunghezza d'onda non valida e \textit{Limits hit} evidenzia l'inserimento di un valore oltre i limiti consentiti.
+	\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/MainAcquireData.png}
+	\caption{Front Panel del progetto, tab \textit{Acquire Data}}
+	\label{fig:newProj_fp_AcquireData}
+\end{figure}
+	\item \textit{Acquire Data}, figura \ref{fig:newProj_fp_AcquireData}, contiene tutti i controlli per poter impostare la fotocamera e acquisire i dati.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/MainPostProc.png}
+	\caption{Front Panel del progetto, tab \textit{Post Processing}}
+	\label{fig:newProj_fp_PostProc}
+\end{figure}
+	\item \textit{Post Processing}, figura \ref{fig:newProj_fp_PostProc}, permette di visualizzare lo spettro corrispondente all'immagine acquisita ed effettuare dei calcoli su tali dati. Con \textit{Waveform Integral} è possibile calcolare l'integrale della lunghezza d'onda su un certo intervallo. \textit{Peak Detector} consente di visualizzare il numero di picchi trovati al di sopra di una certa soglia di inserire e i loro valori. Attraverso il controllo \textit{Pixel To Average} è possibile scegliere il numero di pixel da con cui fare la media da visualizzare poi nel grafico. Sono stati mantenuti anche i controlli per acquisire il background e sottrarlo alla foto.
+	\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/MainSave.png}
+	\caption{Front Panel del progetto, tab \textit{Save}}
+	\label{fig:newProj_fp_Save}
+\end{figure}
+	\item \textit{Save}, figura \ref{fig:newProj_fp_Save}, presenta due controlli booleani: \textit{Save} salva i dati be formattati in un file di testo che può essere aperto successivamente con altri editor, \textit{Save Image} salva invece l'immagine vera e propria.
 \end{itemize}
 Al di fuori di questo controllo è presente un pannello dedicato all'inizializzazione degli strumenti. Il led \textit{Init} segnala che il monocromatore è stato inizializzato senza errori e viene visulizzata anche la versione del programma, in caso contrario si attiva il led \textit{Error Occured}. Sono presenti anche due controlli per specificare la connessione che si intende utilizzare verso la fotocamera: \textit{USB} per connetterla al calcolatori attraverso cavo USB, \textit{CameraLink} o \textit{Analog} per altre modalità di connessione non contemplate in questo progetto.\\
 Infine il bottone \textit{Exit} consente di arrestare il programma nel modo corretto.
 
 \section{Block Diagram}
-\textbf{Inserire foto dei block diagram}
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/Main_bd.png}
+	\caption{Block Diagram del progetto}
+	\label{fig:newProj_bd}
+\end{figure}
 Come detto sopra il programma è stato organizzato in un progetto che raggruppa tutti i subVI creati nel corso della scrittura del codice. Partendo dal VI principale \emph{Main.vi} si descrive il block diagram delineando poi nello specifico i singoli subVI.\\
 Il primo subVI che viene eseguito è \emph{InitMono.vi} che, come si può intuire dal nome, ha il compito di inizializzare il monocromatore; solo se tale subVI esegue restituendo nessun errore è possibile continuare con il resto del programma, del resto non avrebbe senso se lo strumento che deve generare il soggetto delle immagini non funziona correttamente. Se quindi non ci sono errori in fase di inizializzazione del monocromatore si entra in una case structure che racchiude tutto il resto del programma: per prima cosa viene eseguito il subVI di connessione alla fotocamera \emph{ConnectCamera.vi} il cui output entra poi in una flat sequence atta a visualizzare le impostazioni della fotocamera inserite l'ultima volta che è stata utilizzata. Successivamente si entra in un ciclo while per rilevare le azioni dell'utente; all'interno di questo ciclo si trova una case structure legata al \textit{tab control} che permette alla struttura di discriminare il codice in base alla tab selezionata dall'utente. La scelta di tale schema prende spunto dal design pattern di macchina a stati finiti: non è presente un enumerativo e non c'è una vera e propria sequenza che viene eseguita, ma lo schema generale ricorda tale pattern. Analizziamo quindi il codice eseguito nei quattro frame:
 \begin{description}
