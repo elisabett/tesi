@@ -39,7 +39,7 @@
 \contentsline {section}{\numberline {4.3}Front Panel}{34}
 \contentsline {section}{\numberline {4.4}Block Diagram}{37}
 \contentsline {subsection}{\numberline {4.4.1}Descrizione subVI}{40}
-\contentsline {chapter}{\numberline {5}Conclusioni}{43}
-\contentsline {section}{\numberline {5.1}Risultati ottenuti}{43}
-\contentsline {section}{\numberline {5.2}Sviluppi futuri}{44}
-\contentsline {chapter}{Bibliografia}{45}
+\contentsline {chapter}{\numberline {5}Conclusioni}{47}
+\contentsline {section}{\numberline {5.1}Risultati ottenuti}{47}
+\contentsline {section}{\numberline {5.2}Sviluppi futuri}{48}
+\contentsline {chapter}{Bibliografia}{49}

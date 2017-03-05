@@ -56,10 +56,25 @@ Infine il bottone \textit{Exit} consente di arrestare il programma nel modo corr
 Come detto sopra il programma è stato organizzato in un progetto che raggruppa tutti i subVI creati nel corso della scrittura del codice. Partendo dal VI principale \emph{Main.vi} si descrive il block diagram delineando poi nello specifico i singoli subVI.\\
 Il primo subVI che viene eseguito è \emph{InitMono.vi} che, come si può intuire dal nome, ha il compito di inizializzare il monocromatore; solo se tale subVI esegue restituendo nessun errore è possibile continuare con il resto del programma, del resto non avrebbe senso se lo strumento che deve generare il soggetto delle immagini non funziona correttamente. Se quindi non ci sono errori in fase di inizializzazione del monocromatore si entra in una case structure che racchiude tutto il resto del programma: per prima cosa viene eseguito il subVI di connessione alla fotocamera \emph{ConnectCamera.vi} il cui output entra poi in una flat sequence atta a visualizzare le impostazioni della fotocamera inserite l'ultima volta che è stata utilizzata. Successivamente si entra in un ciclo while per rilevare le azioni dell'utente; all'interno di questo ciclo si trova una case structure legata al \textit{tab control} che permette alla struttura di discriminare il codice in base alla tab selezionata dall'utente. La scelta di tale schema prende spunto dal design pattern di macchina a stati finiti: non è presente un enumerativo e non c'è una vera e propria sequenza che viene eseguita, ma lo schema generale ricorda tale pattern. Analizziamo quindi il codice eseguito nei quattro frame:
 \begin{description}
-\item[Setting Mono] All'interno di un'ulteriore case structure viene eseguito il subVI \emph{SettingMono.vi}.
-\item[Acquire Data] Per questa frame della case structure si è scelto di non creare subVI in quanto le variabili di input e output sarebbero state troppo numerose e avrebbero reso il codice incomprensibile. Viene quindi eseguito il codice per l'acquisizione delle immagini (si fa riferimento a quello spiegato nel capitolo precedente). Il ciclo per l'acquisizione viene arrestato anche se viene selezionata dall'utente un'altra tab.
-\item[Post processing] In questa frame sono stati inserite le elaborazioni sui dati che possono essere eseguite in seguito all'acquisizione dei dati. Abbiamo quindi una case structure che permette di visualizzare i dati come immagine o come spettro. Ci sono poi tre subVI: \emph{CreateSpectrum.vi} effettua i calcoli necessari per generare lo spettro da visualizzare, \emph{PeaksDetector.vi} restituisce i picchi sopra una certa soglia, \emph{FindWavefromIntegral.vi} calcola l'integrale su un intervallo della lunghezza d'onda.
-\item[Save] Questa frame contiene due opzioni di salvataggio: \textit{Save} per salvare i dati in un file di testo, \textit{Save Image} per salvare l'immagine.
+\item[Setting Mono] Figura \ref{fig:newProj_bd}. All'interno di un'ulteriore case structure viene eseguito il subVI \emph{SettingMono.vi}.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/Main_acquireData.png}
+	\caption{Block Diagram del progetto, frame ``Acquire Data''}
+	\label{fig:newProj_bd_acquire}
+\end{figure}
+\item[Acquire Data] Figura \ref{fig:newProj_bd_acquire}. Per questa frame della case structure si è scelto di non creare subVI in quanto le variabili di input e output sarebbero state troppo numerose e avrebbero reso il codice incomprensibile. Viene quindi eseguito il codice per l'acquisizione delle immagini (si fa riferimento a quello spiegato nel capitolo precedente). Il ciclo per l'acquisizione viene arrestato anche se viene selezionata dall'utente un'altra tab.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/Main_postProc.png}
+	\caption{Block Diagram del progetto, frame ``Post Processing''}
+	\label{fig:newProj_bd_post}
+\end{figure}
+\item[Post processing] Figura \ref{fig:newProj_bd_post}. In questa frame sono stati inserite le elaborazioni sui dati che possono essere eseguite in seguito all'acquisizione dei dati. Abbiamo quindi una case structure che permette di visualizzare i dati come immagine o come spettro. Ci sono poi tre subVI: \emph{CreateSpectrum.vi} effettua i calcoli necessari per generare lo spettro da visualizzare, \emph{PeaksDetector.vi} restituisce i picchi sopra una certa soglia, \emph{FindWavefromIntegral.vi} calcola l'integrale su un intervallo della lunghezza d'onda.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/Main_save.png}
+	\caption{Block Diagram del progetto, frame ``Save''}
+	\label{fig:newProj_bd_save}
+\end{figure}
+\item[Save] Figura \ref{fig:newProj_bd_save}. Questa frame contiene due opzioni di salvataggio: \textit{Save} per salvare i dati in un file di testo, \textit{Save Image} per salvare l'immagine.
 \end{description}
 I shift register del ciclo esterno sono cinque: \textit{Pixel} contiene la matrice di pixel che compone l'immagine, \textit{Connection} contiene tutte le informazioni relative alla fotocamera, \textit{Error Cluster} riporta gli eventuali errori generati dalla fotocamera, \textit{Width Array} è l'array che contiene i valori delle lunghezze d'onda, \textit{2D Array} è la matrice con i valori da inserire nel grafico dello spettro.\\
 Se infine viene arrestato il ciclo con il comando \textit{Exit}, viene eseguita l'ultima flat sequence che resetta i valori dei controlli di acquisizione delle immagini e viene eseguito anche il subVI \emph{ExitCamera.vi} per la chiusura graceful del programma e il rilascio delle risorse.
@@ -67,11 +82,52 @@ Se infine viene arrestato il ciclo con il comando \textit{Exit}, viene eseguita 
 \subsection{Descrizione subVI}
 Si descrivono di seguito i singoli subVI e le loro funzionalità. Saranno analizzati solo i block diagram, in quanto i front panel hanno il solo scopo di mostrare input e output.
 \begin{description}
-\item[\textit{InitMono.vi}] Il compito di questo subVI è quello di interrogare il monocromatore riportandolo al suo stato di default. Rispetto al codice presente nel progetto antecedente è stato leggermente modificato. Sono state eliminate tutte le flat sequence, che forzano il flusso logico dei dati. Dopo che è stato invocato il subVI del monocromatore \emph{Start Up.vi}, il led \textit{Init} viene impostato a true solo ed esclusivamente se non sono presenti errori nella matrice di errori restituita dallo stesso.
-\item[\textit{SettingMono.vi}] Anche questo subVI è stato modificato rispetto al codice precedente eliminando tutte le flat sequence. La descrizione di tale subVI è la stessa illustrata \textbf{---METTERE RIFERIMENTO---}
-\item[\textit{CreateImage.vi}] In seguito all'invocazione del subVI della fotocamera \emph{GetExposure.vi} viene invocata la funzione \emph{Draw Unflattened Pixmap.vi} per creare l'immagine vera e propria che possa essere visualizzata in un indicatore apposito.
-\item[\textit{PeaksDetector.vi}] Lo scopo di questo subVI è quello di trovare, attraverso la funzione \emph{Waveform Peak Detection.vi}, il numero di picchi presenti nella matrice in ingresso con rispettivi valori di lunghezza d'onda e intensità del picco.
-\item[\textit{FindWavefromIntegral.vi}] Data in ingresso la matrice con lunghezza d'onda e intensità dello spettro, questo subVI calcola l'integrale, con apposite funzioni, su un intervallo in input.
-\item[\textit{CreateSpectrum.vi}] Come si può intuire dal nome, l'output di questo subVI consiste in una matrice di valori che rappresentano lunghezze d'onda con rispettiva intensità dello spettro. I calcoli presenti sono stati riportati dal progetto precedente in quanto legati al monocromatore. È stato modificato il valore del numero di pixel della larghezza dell'immagine (1360) e il valore di pixel/nm (0.0047) (???).
-\item[\textit{FindMaxPeak\&WL\&FWHM.vi}] Questo subVI produce due risultati: restituisce il picco massimo e la sua corrispettiva lunghezza d'onda, e il valore della FWHM (Full Width at Half Maximum).
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/InitMonod.png}
+	\caption{Block Diagram del subVI \emph{InitMono.vi}}
+	\label{fig:newProj_bd_sub_initMono}
+\end{figure}
+\item[\textit{InitMono.vi}] Figura \ref{fig:newProj_bd_sub_initMono}. Il compito di questo subVI è quello di interrogare il monocromatore riportandolo al suo stato di default. Rispetto al codice presente nel progetto antecedente è stato leggermente modificato. Sono state eliminate tutte le flat sequence, che forzano il flusso logico dei dati. Dopo che è stato invocato il subVI del monocromatore \emph{Start Up.vi}, il led \textit{Init} viene impostato a true solo ed esclusivamente se non sono presenti errori nella matrice di errori restituita dallo stesso.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/SettingMonod.png}
+	\caption{Block Diagram del subVI \emph{SettingMono.vi}}
+	\label{fig:newProj_bd_sub_settingMono}
+\end{figure}
+\item[\textit{SettingMono.vi}] Figura \ref{fig:newProj_bd_sub_settingMono}. Anche questo subVI è stato modificato rispetto al codice precedente eliminando tutte le flat sequence. La descrizione di tale subVI è la stessa illustrata \textbf{---METTERE RIFERIMENTO---}
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/CreateImaged.png}
+	\caption{Block Diagram del subVI \emph{CreateImage.vi}}
+	\label{fig:newProj_bd_sub_CreateImage}
+\end{figure}
+\item[\textit{CreateImage.vi}] Figura \ref{fig:newProj_bd_sub_CreateImage}. In seguito all'invocazione del subVI della fotocamera \emph{GetExposure.vi} viene invocata la funzione \emph{Draw Unflattened Pixmap.vi} per creare l'immagine vera e propria che possa essere visualizzata in un indicatore apposito.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/PeaksDetectord.png}
+	\caption{Block Diagram del subVI \emph{PeaksDetector.vi}}
+	\label{fig:newProj_bd_sub_PeaksDetector}
+\end{figure}
+\item[\textit{PeaksDetector.vi}] Figura \ref{fig:newProj_bd_sub_PeaksDetector}. Lo scopo di questo subVI è quello di trovare, attraverso la funzione \emph{Waveform Peak Detection.vi}, il numero di picchi presenti nella matrice in ingresso con rispettivi valori di lunghezza d'onda e intensità del picco.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/FindWaveformIntegrald.png}
+	\caption{Block Diagram del subVI \emph{FindWaveformIntegral.vi}}
+	\label{fig:newProj_bd_sub_FindWaveformIntegral}
+\end{figure}
+\item[\textit{FindWavefromIntegral.vi}] Figura \ref{fig:newProj_bd_sub_FindWaveformIntegral}. Data in ingresso la matrice con lunghezza d'onda e intensità dello spettro, questo subVI calcola l'integrale, con apposite funzioni, su un intervallo in input.
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/CreateSpectrumd.png}
+	\caption{Block Diagram del subVI \emph{CreateSpectrum.vi}}
+	\label{fig:newProj_bd_sub_CreateSpectrum}
+\end{figure}
+\item[\textit{CreateSpectrum.vi}] Figura \ref{fig:newProj_bd_sub_CreateSpectrum}. Come si può intuire dal nome, l'output di questo subVI consiste in una matrice di valori che rappresentano lunghezze d'onda con rispettiva intensità dello spettro. I calcoli presenti sono stati riportati dal progetto precedente in quanto legati al monocromatore. È stato modificato il valore del numero di pixel della larghezza dell'immagine (1360) e il valore di pixel/nm (0.0047) (???).
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/FindMaxPeakWLFWHMd.png}
+	\caption{Block Diagram del subVI \emph{FindMaxPeak\&WL\&FWHM.vi}}
+	\label{fig:newProj_bd_sub_FindMaxPeakWLFWHM}
+\end{figure}
+\item[\textit{FindMaxPeak\&WL\&FWHM.vi}] Figura \ref{fig:newProj_bd_sub_FindMaxPeakWLFWHM}. Questo subVI produce due risultati: restituisce il picco massimo e la sua corrispettiva lunghezza d'onda, e il valore della FWHM (Full Width at Half Maximum).
 \end{description}
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/IconeSubVI.png}
+	\caption{Icone dei subVI del progetto}
+	\label{fig:newProj_bd_sub_icons}
+\end{figure}
+Nella figura \ref{fig:newProj_bd_sub_icons} si possono vedere le icone con input e output di tutti i subVI citati.
