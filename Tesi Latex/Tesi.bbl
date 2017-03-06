@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{labviewWebSite}
+
+
+\bibitem{miseAnServiceCamera}
+Francois Countaceau.
+\newblock Mise en service d'une camera iccd.
+\newblock Relazione di tirocinio, Luglio 2013.
+
+\bibitem{monoAPIManual}
+Horiba Jobin Yvon.
+\newblock {\em LabVIEW Driver Supplement to the Spectometer Control Manual}.
+
+\bibitem{monoManual}
+I.S.A. Jobin Yvon-Spex.
+\newblock {\em HR460 User Manual}, 1996.
+
+\bibitem{cameraAPIManual}
+Stanford Computer Optics, Inc.
+\newblock {\em LabVIEW API}.
+
+\bibitem{cameraManual}
+Stanford Computer Optics, Inc.
+\newblock {\em Operating Manual for intensified CCD (ICCD) digital video camera
+  system}, 2014.
+
+\end{thebibliography}

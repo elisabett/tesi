@@ -7,7 +7,8 @@ A level-1 auxiliary file: capitolo2.aux
 A level-1 auxiliary file: capitolo3.aux
 A level-1 auxiliary file: capitolo4.aux
 A level-1 auxiliary file: capitolo5.aux
-I found no \citation commands---while reading file Tesi.aux
-I found no \bibdata command---while reading file Tesi.aux
-I found no \bibstyle command---while reading file Tesi.aux
-(There were 3 error messages)
+The style file: plain.bst
+A level-1 auxiliary file: ringraziamenti.aux
+Database file #1: bibl_tesi.bib
+Warning--to sort, need author or key in labviewWebSite
+(There was 1 warning)

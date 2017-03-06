@@ -5,7 +5,7 @@ Prima della realizzazione del progetto per controllare entrambi gli strumenti, s
 
 \section{Fotocamera}
 
-Per entrare in confidenza con il linguaggio di programmazione grafico LabVIEW e con lo strumento, si è reso necessario partire da un esempio fornito con le API LabVIEW legate alla nuova fotocamera intensificata.
+Per entrare in confidenza con il linguaggio di programmazione grafico LabVIEW e con lo strumento, si è reso necessario partire da un esempio fornito con le API LabVIEW legate alla nuova fotocamera intensificata \cite{miseAnServiceCamera}.
 
 \subsection{Breve descrizione dello strumento}
 La fotocamera intensificata per cui si deve scrivere il programma che la controlli è la 4 Picos con CCD intensificato di Stanford Computer Optics, Inc.
@@ -34,7 +34,7 @@ In seguito alla flat sequence troviamo un ciclo while con lo scopo di individuar
 All'esterno di tale ciclo viene eseguito l'ultimo frammento di codice: in una flat sequence vengono resettati i bottoni di \textit{Exit} e \textit{Live Mode}, impostandoli a false, e infine viene invocato l'ultimo subVI relativo alla fotocamera, \emph{ExitCamera.vi}, che ha il compito di rilasciare le risorse impegnate dal programma e arrestare la fotocamera nel modo corretto.
 
 \section{Monocromatore}
-Ad un primo tentativo di refactoring del progetto preesistente il codice relativo al controllo del monocromatore si è rivelato troppo caotico e sparso. Per questo si è realizzato un nuovo programma, prendendo ovviamente spunto dal precedente, dedicato solo al monocromatore, che rispettasse il corretto flusso dei dati e non facesse uso di flat sequence. Si descrivono di seguito front panel e block diagram di tale programma.
+Ad un primo tentativo di refactoring del progetto preesistente il codice relativo al controllo del monocromatore si è rivelato troppo caotico e sparso. Per questo si è realizzato un nuovo programma, prendendo ovviamente spunto dal precedente, dedicato solo al monocromatore, che rispettasse il corretto flusso dei dati e non facesse uso di flat sequence. Si descrivono di seguito front panel e block diagram di tale programma \cite{monoAPIManual}.
 
 \subsection{Front Panel}
 \begin{figure} [h]
