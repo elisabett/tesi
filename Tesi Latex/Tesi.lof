@@ -2,37 +2,39 @@
 \select@language {italian}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Front Panel del progetto preesistente}}{16}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Block Diagram del progetto preesistente}}{16}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Block Diagram del progetto preesistente, primo blocco}}{17}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco}}{18}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, primo blocco della flat sequence interna}}{18}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, secondo blocco della flat sequence interna}}{19}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, terzo blocco della flat sequence interna}}{20}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, quarto blocco della flat sequence interna}}{21}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, quinto blocco della flat sequence interna}}{22}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Block Diagram del progetto preesistente, terzo blocco}}{23}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schema della struttura interna di un monocromatore con configurazione \textit {Czerny-Turner}}}{8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Struttura interna di una fotocamera ICCD}}{9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Front Panel del progetto preesistente}}{18}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Block Diagram del progetto preesistente}}{18}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Block Diagram del progetto preesistente, primo blocco}}{19}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco}}{20}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, primo blocco della flat sequence interna}}{20}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, secondo blocco della flat sequence interna}}{21}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, terzo blocco della flat sequence interna}}{22}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, quarto blocco della flat sequence interna}}{23}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Block Diagram del progetto preesistente, secondo blocco, quinto blocco della flat sequence interna}}{24}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Block Diagram del progetto preesistente, terzo blocco}}{25}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Front Panel del progetto per sola fotocamera}}{26}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Block Diagram del progetto per sola fotocamera}}{27}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Front Panel del progetto per solo monocromatore}}{29}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Block Diagram del progetto per solo monocromatore}}{30}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Front Panel del progetto per sola fotocamera}}{28}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Block Diagram del progetto per sola fotocamera}}{29}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Front Panel del progetto per solo monocromatore}}{31}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Block Diagram del progetto per solo monocromatore}}{32}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Struttura del progetto}}{34}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Front Panel del progetto, tab \textit {Setting Mono}}}{35}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Front Panel del progetto, tab \textit {Acquire Data}}}{36}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Front Panel del progetto, tab \textit {Post Processing}}}{37}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Front Panel del progetto, tab \textit {Save}}}{38}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Block Diagram del progetto}}{39}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Block Diagram del progetto, frame ``Acquire Data''}}{40}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Block Diagram del progetto, frame ``Post Processing''}}{41}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Block Diagram del progetto, frame ``Save''}}{42}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Block Diagram del subVI \emph {InitMono.vi}}}{43}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Block Diagram del subVI \emph {SettingMono.vi}}}{43}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Block Diagram del subVI \emph {CreateImage.vi}}}{44}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Block Diagram del subVI \emph {PeaksDetector.vi}}}{45}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Block Diagram del subVI \emph {FindWaveformIntegral.vi}}}{45}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Block Diagram del subVI \emph {CreateSpectrum.vi}}}{45}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Block Diagram del subVI \emph {FindMaxPeak\&WL\&FWHM.vi}}}{46}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Icone dei subVI del progetto}}{46}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Struttura del progetto}}{36}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Front Panel del progetto, tab \textit {Setting Mono}}}{37}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Front Panel del progetto, tab \textit {Acquire Data}}}{38}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Front Panel del progetto, tab \textit {Post Processing}}}{39}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Front Panel del progetto, tab \textit {Save}}}{40}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Block Diagram del progetto}}{41}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Block Diagram del progetto, frame ``Acquire Data''}}{42}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Block Diagram del progetto, frame ``Post Processing''}}{43}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Block Diagram del progetto, frame ``Save''}}{44}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Block Diagram del subVI \emph {InitMono.vi}}}{45}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Block Diagram del subVI \emph {SettingMono.vi}}}{45}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Block Diagram del subVI \emph {CreateImage.vi}}}{46}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Block Diagram del subVI \emph {PeaksDetector.vi}}}{46}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Block Diagram del subVI \emph {FindWaveformIntegral.vi}}}{47}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Block Diagram del subVI \emph {CreateSpectrum.vi}}}{47}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Block Diagram del subVI \emph {FindMaxPeak\&WL\&FWHM.vi}}}{47}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Icone dei subVI del progetto}}{48}
 \addvspace {10\p@ }

@@ -8,11 +8,23 @@ Si illustrano di seguito alcune principali caratteristiche degli strumenti coinv
 \subsection{Monocromatore}
 Un monocromatore \`e un dispositivo che scompone un singolo fascio di luce policromatica in pi\`u fasci di luce monocromatica (che contiene cio\`e onde di una sola frequenza), permettendo cos\`i di analizzare l'intensit\`a in funzione della lunghezza d'onda.\\
 Nello strumento la luce policromatica entra da una fessura; tramite un sistema ottico viene inviata su un reticolo di diffrazione o ad un prisma che scompone il fascio. Una seconda fenditura raccoglie poi il fascio di una determinata lunghezza d'onda.\\
-In questo progetto si considera un monocromatore Jobin-Yvon HR460. La luce che entra dalla fessura viene rifratta (?) due volte attraverso due lenti tra cui \`e interposta una griglia che scompone il fascio di luce. 
+\begin{figure} [h]
+	\includegraphics[width=\linewidth]{img/Czerny-Turner_Monochromator.png}
+	\caption{Schema della struttura interna di un monocromatore con configurazione \textit{Czerny-Turner}}
+	\label{fig:CzernyTurnerMonochromator}
+\end{figure}
+In questo progetto si considera un monocromatore Jobin-Yvon HR460 con configurazione \textit{Czerny-Turner} in figura \ref{fig:CzernyTurnerMonochromator}. In questa configurazione la sorgente di illuminazione si rivolge a una fenditura di ingresso; la quantità di energia luminosa disponibile dipende dall'intensità della sorgente nello spazio definito dalla fenditura e l'angolo di accettazione del sistema ottico. La fenditura è posta al centro di uno specchio curvo in modo che la luce proveniente dalla fenditura riflessa dallo specchio venga collimata (focalizzata all'infinito). La luce collimata viene poi diffratta dal grating e quindi raccolta da un altro specchio che riorienta la luce dispersa in una fenditura di uscita \cite{ctMono}.
 
 \subsection{Fotocamera}
 Una fotocamera intensificata \`e una fotocamera che al posto della pellicola fotosensibile utilizza un sensore (CCD) in grado di catturare l'immagine e trasformarla in un segnale elettrico di tipo analogico. Gli impulsi elettrici vengono convertiti in digitale da un convertitore analogico/digitale in un chip di elaborazione esterno al sensore. Viene quindi generato un flusso di dati digitali atti ad essere immagazzinati in vari formati su supporto di memoria.\\
-Il CCD (Charged-Coupled Device) \`e un dispositivo attraverso il quale si ottiene un segnale elettrico in uscita, in seguito a una sequenza temporizzata di impulsi, grazie al quale \`e possibile ricostruire la matrice di pixel che compongono l'immagine proiettata sulla superficie del CCD stesso. Questa informazione pu\`o essere usata come segnale analogico, e quindi essere usata per riprodurre l'immagine su un monitor, oppure pu\`o essere convertita in formato digitale.
+Il CCD (Charged-Coupled Device) \`e un dispositivo attraverso il quale si ottiene un segnale elettrico in uscita, in seguito a una sequenza temporizzata di impulsi, grazie al quale \`e possibile ricostruire la matrice di pixel che compongono l'immagine proiettata sulla superficie del CCD stesso. Questa informazione pu\`o essere usata come segnale analogico, e quindi essere usata per riprodurre l'immagine su un monitor, oppure pu\`o essere convertita in formato digitale.\\
+\begin{figure} [h]
+	\centering
+	\includegraphics[width=\linewidth]{img/IntensifiedCCD.PNG}
+	\caption{Struttura interna di una fotocamera ICCD}
+	\label{fig:intensifiedCamera}
+\end{figure}
+In aggiunta a queste tecnologie una fotocamera intensificata, in figura \ref{fig:intensifiedCamera}, presenta un intensificatore di immagine prima del CCD: la luce in ingresso viene prima amplificato dall'intensificatore e poi l'immagine intensificata viene proiettata sul sensore CCD mediante delle lenti accoppiate. In questo modo si riescono a catturare immagini anche in presenza di poca luce, o utilizzando tempi di esposizione estremamente ridotti (anche di centinaia di nanosecondi) \cite{iccdSystem}.
 
 \section{Principali funzioni}
 Il progetto preesistente ha le stesse funzioni del nuovo programma richieste, con alcune eccezioni per quanto riguarda la fotocamera. Quella utilizzata precedentemente presentava alcune funzioni che la nuova fotocamera non mette a disposizione. Ad ogni modo si descriver\`a il progetto cercando di evidenziare le funzionalit\`a che necessitano di essere abbandonate a causa della diversit\`a dei due strumenti.\\

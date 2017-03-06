@@ -1,7 +1,7 @@
 \begin{thebibliography}{1}
 
-\bibitem{labviewWebSite}
-
+\bibitem{ctMono}
+{\em https://en.wikipedia.org/wiki/Monochromator}.
 
 \bibitem{miseAnServiceCamera}
 Francois Countaceau.
@@ -15,6 +15,16 @@ Horiba Jobin Yvon.
 \bibitem{monoManual}
 I.S.A. Jobin Yvon-Spex.
 \newblock {\em HR460 User Manual}, 1996.
+
+\bibitem{labviewWebSite}
+Nation Instruments Corporation.
+\newblock {\em http://www.ni.com/labview/i/}, 2017.
+
+\bibitem{iccdSystem}
+Standford Computer Optics.
+\newblock {\em
+  http://www.stanfordcomputeroptics.com/technology/iccd-system-overview.html},
+  2013.
 
 \bibitem{cameraAPIManual}
 Stanford Computer Optics, Inc.
