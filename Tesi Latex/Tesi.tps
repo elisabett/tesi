@@ -36,7 +36,7 @@ Document=introduzione.tex
 
 [Frame1_View0,0]
 TopLine=0
-Cursor=753
+Cursor=1621
 
 [Frame2]
 Flags=0
@@ -54,7 +54,7 @@ Document=dedica.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=782
+Cursor=984
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=capitolo1.tex
 
 [Frame3_View0,0]
-TopLine=53
-Cursor=5592
+TopLine=52
+Cursor=5213
 
 [Frame4]
 Flags=0
@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=capitolo2.tex
 
 [Frame4_View0,0]
-TopLine=231
-Cursor=18416
+TopLine=0
+Cursor=100
 
 [Frame5]
 Flags=0
@@ -107,8 +107,8 @@ Class=LaTeXView
 Document=capitolo3.tex
 
 [Frame5_View0,0]
-TopLine=72
-Cursor=7308
+TopLine=87
+Cursor=5486
 
 [Frame6]
 Flags=0
@@ -125,8 +125,8 @@ Class=LaTeXView
 Document=capitolo4.tex
 
 [Frame6_View0,0]
-TopLine=146
-Cursor=36
+TopLine=206
+Cursor=14008
 
 [Frame7]
 Flags=0
@@ -144,7 +144,7 @@ Document=capitolo5.tex
 
 [Frame7_View0,0]
 TopLine=0
-Cursor=1988
+Cursor=1620
 
 [Frame8]
 Flags=0
@@ -180,7 +180,7 @@ Document=ringraziamenti.tex
 
 [Frame9_View0,0]
 TopLine=0
-Cursor=449
+Cursor=458
 
 [Frame10]
 Flags=0
@@ -197,10 +197,10 @@ Class=BibTeXView
 Document=bibl_tesi.bib
 
 [Frame10_View0,0]
-TopLine=18
+TopLine=16
 Cursor=1146
 
 [SessionInfo]
 FrameCount=11
-ActiveFrame=4
+ActiveFrame=1
 
