@@ -4,11 +4,12 @@
 Prima della realizzazione del progetto per controllare entrambi gli strumenti, si è optato per la scrittura di due progetti separati. In questo modo è stato possibile verificare la versione del codice più efficacie per ogni strumento, così da poter unire in seguito le due logiche, evitando conflitti.
 
 \section{Fotocamera}
+\label{sec:fotocamera_proj_singolo}
 
 Per entrare in confidenza con il linguaggio di programmazione grafico LabVIEW e con lo strumento, si è reso necessario partire da un esempio fornito con le API LabVIEW legate alla nuova fotocamera intensificata \cite{miseAnServiceCamera}.
 
 \subsection{Breve descrizione dello strumento}
-La fotocamera intensificata per cui si deve scrivere il programma che la controlli è la 4 Picos con CCD intensificato di Stanford Computer Optics, Inc.
+La fotocamera intensificata per cui si deve scrivere il programma che la controlli è la 4 Picos con CCD intensificato di Stanford Computer Optics, Inc. (per la descrizione dello strumento si faccia riferimento alla sottosezione \ref{subsec:descrizioneFotocamera}).
 
 \subsection{Descrizione dell'esempio fornito}
 
@@ -30,12 +31,13 @@ Nel front panel in figura \ref{fig:midProj_camera_fp} possiamo vedere due contro
 	\caption{Block Diagram del progetto per sola fotocamera}
 	\label{fig:midProj_camera_bd}
 \end{figure}
-Si può considerare il bock diagram, in figura \ref{fig:midProj_camera_bd}, idealmente diviso in tre parti che eseguono in senquenza: una parte iniziale di inizializzazione, una intermedia di funzionamento del programma, e una finale di chiusura graceful dell'applicazione.\\
-Il primo subVI invocato è \emph{ConnectCamera.vi} e deve essere invocato prima che la fotocamera sia utilizzata, imposta la connessione della fotocamera dipendentemente dall'input immesso dall'utente; restituisce in uscita un cluster contenente tutte le informazioni che riguardano le impostazioni della fotocamera. Tale cluster di dati, insieme al cluster di errore, entra in una flat sequence che recupera le impostazioni memorizzate da un uso antecedente dello strumento e le mostra nel controlli appositi nel front panel; viene anche impostato il bottone booleano \textit{Live Mode} a false.\\
-In seguito alla flat sequence troviamo un ciclo while con lo scopo di individuare il cambiamento dei bottoni e dei controlli. All'interno di questo ciclo sono presenti due case structure: la prima associata al bottone \textit{Save Image...} che permette di salvare l'immagine, la seconda associata all'\textit{or} fra il valore dei due bottoni \textit{Single Exposure} e \textit{Live Mode}. Viene eseguito quindi il codice all'interno di quest'ultima case structure qualora o un bottone o l'altro esclusivamente (grazie ad un'altra case structure interna) abbiamo il valore true. Una volta dentro la case structure viene eseguito un ciclo while all'interno del quale vengono invocate alcune API LabVIEW della fotocamera: dapprima \emph{SetExposureTime.vi} con la quale si setta il tempo di esposizione, poi \emph{GetExposure.vi} che restituisce la matrice di pixel corrispondente alla foto. Attraverso alcuni calcoli che tengono in considerazione anche il valore di fondo scala inserito viene generata l'immagine da visualizzare del controllo destinato. Il ciclo while interno si arresta se viene presa una singola immagine, oppure se non si è selezionata la modalità Live Mode, o se si è premuto il bottone \textit{Exit} per uscire dal ciclo o quello di salvataggio dell'immagino, o ancora se si è verificato qualche errore. Il ciclo esterno si arresta invece se si è verificato qualche errore o se si è invocato il bottone \textit{Exit} per fermarlo.\\
+Si può considerare il bock diagram, in figura \ref{fig:midProj_camera_bd}, idealmente diviso in tre parti che eseguono in sequenza: una parte di inizializzazione, una intermedia di funzionamento del programma, e una finale di chiusura graceful dell'applicazione.\\
+Il primo subVI invocato è \emph{ConnectCamera.vi} e deve essere invocato prima che la fotocamera sia utilizzata, imposta la connessione della fotocamera dipendentemente dall'input immesso dall'utente; restituisce in uscita un cluster contenente tutte le informazioni che riguardano le impostazioni della fotocamera. Tale cluster di dati, insieme al cluster di errore, entra in una flat sequence che recupera le impostazioni memorizzate da un uso antecedente dello strumento e le mostra nei controlli appositi nel front panel; viene anche impostato il bottone booleano \textit{Live Mode} a false.\\
+In seguito alla flat sequence troviamo un ciclo while con lo scopo di individuare il cambiamento dei bottoni e dei controlli. All'interno di questo ciclo sono presenti due case structure: la prima associata al bottone \textit{Save Image...} che permette di salvare l'immagine, la seconda associata all'\textit{or} fra il valore dei due bottoni \textit{Single Exposure} e \textit{Live Mode}. Viene eseguito quindi il codice all'interno di quest'ultima case structure qualora o un bottone o l'altro esclusivamente (grazie ad un'altra case structure interna) abbia il valore true. Una volta dentro la case structure viene eseguito un ciclo while all'interno del quale vengono invocate alcune API LabVIEW della fotocamera: dapprima \emph{SetExposureTime.vi} con la quale si setta il tempo di esposizione, poi \emph{GetExposure.vi} che restituisce la matrice di pixel corrispondente alla foto. Attraverso alcuni calcoli che tengono in considerazione anche il valore di fondo scala inserito viene generata l'immagine da visualizzare del controllo destinato. Il ciclo while interno si arresta se viene presa una singola immagine, oppure se non si è selezionata la modalità Live Mode, o se si è premuto il bottone \textit{Exit} per uscire dal ciclo o quello di salvataggio dell'immagine, o ancora se si è verificato qualche errore. Il ciclo esterno si arresta invece se si è verificato qualche errore o se si è invocato il bottone \textit{Exit} per fermarlo.\\
 All'esterno di tale ciclo viene eseguito l'ultimo frammento di codice: in una flat sequence vengono resettati i bottoni di \textit{Exit} e \textit{Live Mode}, impostandoli a false, e infine viene invocato l'ultimo subVI relativo alla fotocamera, \emph{ExitCamera.vi}, che ha il compito di rilasciare le risorse impegnate dal programma e arrestare la fotocamera nel modo corretto.
 
 \section{Monocromatore}
+\label{sec:monocromatore_proj_singolo}
 Ad un primo tentativo di refactoring del progetto preesistente il codice relativo al controllo del monocromatore si è rivelato troppo caotico e sparso. Per questo si è realizzato un nuovo programma, prendendo ovviamente spunto dal precedente, dedicato solo al monocromatore, che rispettasse il corretto flusso dei dati e non facesse uso di flat sequence. Si descrivono di seguito front panel e block diagram di tale programma \cite{monoAPIManual}.
 
 \subsection{Front Panel}
@@ -47,7 +49,7 @@ Ad un primo tentativo di refactoring del progetto preesistente il codice relativ
 \end{figure}
 Gli elementi presenti nel front panel in figura \ref{fig:midProj_mono_fp} sono gli stessi dedicati al monocromatore nel precedente progetto, li rivedremo comunque brevemente. I controlli presenti sono:
 \begin{itemize}
-	\item \textit{Grating} per distinguere il tipo ti grating (1200 o 2400)
+	\item \textit{Grating} per distinguere il tipo di grating (1200 o 2400)
 	\item \textit{Set Entrance Slit} per impostare la slit di entrata
 	\item \textit{Set Wave Length} per inserire la lunghezza d'onda desiderata
 \end{itemize}

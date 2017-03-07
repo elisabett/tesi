@@ -5,7 +5,7 @@
 Si descrive nelle seguenti sezioni la specifica dei requisiti del sistema software che si intende sviluppare.
 
 \section{Scopo}
-Come accennato nell'introduzione si rende necessaria la realizzazione di una nuova interfaccia che possa controllare simultaneamente il monocromatore HR640 e la fotocamera intensificata 4 Picos. Il precedente programma aveva la capacità di controllare lo stesso monocromatore ma una diversa fotocamera, SensiCam (version 3.0).
+Come accennato nell'introduzione si rende necessaria la realizzazione di una nuova interfaccia che possa controllare simultaneamente il monocromatore HR460 e la fotocamera intensificata 4 Picos. Il precedente programma aveva la capacità di controllare lo stesso monocromatore ma una diversa fotocamera, SensiCam (version 3.0).
 
 \section{Descrizione generale}
 L'utente, attraverso il programma da progettare, deve poter controllare sia il monocromatore che la fotocamera intensificata. È importante che questi due strumenti possano essere controllati simultaneamente poiché le loro funzioni sono strettamente legate: il monocromatore genera un determinato spettro attraverso la sua struttura interna e la fotocamera deve poter catturare tale spettro il più precisamente possibile.
@@ -25,7 +25,7 @@ L'interfaccia deve risultare il più intuitiva possibile, per questo si deve cerc
   \item[Monocromatore] Per quanto riguarda la parte di interfaccia che permette di impostare correttamente il monocromatore è necessario poter modificare il grating (1200 o 2400) e la calibrazione di correzione della lunghezza d'onda. Si deve anche poter modificare la slit di entrata e la lunghezza d'onda \cite{monoManual};
   \item[Fotocamera] La parte di interfaccia che concerne la fotocamera intensificata deve contenere i seguenti parametri\cite{cameraManual} \cite{cameraAPIManual}:
 	\begin{itemize}
-\item MCP Gain Voltage: guadagno di tensione in volt tra 600 V e 950 V
+\item MCP Gain Voltage: guadagno di tensione in volt tra $600 V$ e $950 V$
 \item Exposure Time: tempo di esposizione, deve essere positivo e si deve poter specificare l'unità di misura
 \item Delay: ritardo in secondi dell'acquisizione dell'immagine
 \item Frames to accumulate: numero di immagini da acquisire
@@ -34,7 +34,7 @@ L'interfaccia deve risultare il più intuitiva possibile, per questo si deve cerc
 \item Start Option: Cold Start, non ci sono parametri pregressi da utilizzare, Warm Start, dopo il riavvio della fotocamera si chiede all'utente se si devono caricare i parametri usati precedentemente, Auto Warm Start, dopo il riavvio della fotocamera vengono caricati i parametri usati in precedenza senza la conferma da parte dell'utente
 \item Detector: per specificare l'area attiva del chip CCD, frame intero, binning 2x2 oppure ROI (Region of Interest, solo 1/3 dell'area complessiva)
 \item Digitalizer Mode: acquisizione dell'immagine con una precisione di 8 o 14 bit per pixel
-\item CCD Gain: automatico oppure settabile manualmente (in dB)
+\item CCD Gain: automatico oppure settabile manualmente (in $dB$)
 \item Trigger Mode: trigger diretto (ad ogni segnale di trigger farà scattare l'otturatore) oppure singolo (in questo caso deve essere possibile inserire il numero di trigger per frame)
 \item Modalità di acquisizione dell'immagine: Single Exposure per catturare una sola immagine, Live Mode per acquisire immagini in modo continuo;
 \end{itemize}
@@ -42,10 +42,11 @@ L'interfaccia deve risultare il più intuitiva possibile, per questo si deve cerc
 Devono anche essere presenti dei comandi per il post-processing e l'analisi delle immagini acquisite. Come nel progetto preesistente è necessario visualizzare lo spettro in un grafico che abbia nell'asse orizzontale il range di lunghezza d'onda osservato e nell'asse verticale l'intensità relativa dello spettro. Inoltre deve essere possibile sottrarre un background acquisito in precedenza ed effettuare dei calcoli sullo spettro, come integrale sulla lunghezza d'onda, FWHM, picco massimo e numero di picchi. Alla fine delle operazioni, qualora ce ne sia la possibilità, si deve poter salvare i dati in un file di testo che tenga traccia dei valori calcolati per visualizzare lo spettro.
 
 \subsection{Linguaggio di programmazione}
+\label{subsec:labview}
 Il linguaggio di programmazione da utilizzare per realizzare il progetto richiesto è LabVIEW.\\ LabVIEW è un linguaggio di programmazione grafica (G - Graphical Programming Language) che utilizza un modello a flusso di dati invece di linee sequenziali di codice testuale, permettendo di scrivere codice funzionale utilizzando un layout grafico che assomiglia a un diagramma di flusso \cite{labviewWebSite}. \\
 L'ambiente di programmazione LabVIEW presenta due principali finestre di lavoro: front panel e block diagram. 
 \begin{description}
 \item[Front Panel]Finestra in cui si visualizza e si modifica l'interfaccia utente. Sono disponibili diversi stili e comandi per l'interazione con l'utente. Si possono inserire bottoni, caselle di inserimento di stringhe o numeri, led, controlli a tab, indicatori per visualizzare grafici, immagini, matrici ecc.
-\item[Block Diagram]Finestra in cui si compone il codice a blocchi con controlli, indicatori, subVI e moltre alte componenti. Da tale finestra è possibile effettuare il debug del codice e controllare il contenuto delle variabili.
+\item[Block Diagram]Finestra in cui si compone il codice a blocchi con controlli, indicatori, subVI e molte alte componenti. Da tale finestra è possibile effettuare il debug del codice e controllare il contenuto delle variabili.
 \end{description}
 Le strutture principali utilizzate nel codice sono cicli, while e for, e case structure, che funzionano come if o switch. Per mantenere il valore delle variabili e condividerle con altre strutture si usano fili che le interconnettono. Elementi fondamentali nel linguaggio di programmazione grafica sono controlli e indicatori: i controlli permettono all'utente di inserire o modificare i dati, mentre gli indicatori consentono di visualizzare lo stato delle variabili.

@@ -16,10 +16,10 @@
 \contentsline {section}{\numberline {2.2}Principali funzioni}{9}
 \contentsline {subsection}{\numberline {2.2.1}Monocromatore}{10}
 \contentsline {subsection}{\numberline {2.2.2}Fotocamera non intensificata}{10}
-\contentsline {subsection}{\numberline {2.2.3}Altre opzioni}{11}
+\contentsline {subsection}{\numberline {2.2.3}Altre opzioni}{10}
 \contentsline {section}{\numberline {2.3}Codice del progetto preesistente}{11}
 \contentsline {subsection}{\numberline {2.3.1}Front Panel}{11}
-\contentsline {subsection}{\numberline {2.3.2}Block Diagram}{13}
+\contentsline {subsection}{\numberline {2.3.2}Block Diagram}{12}
 \contentsline {subsubsection}{Primo blocco}{13}
 \contentsline {subsubsection}{Secondo blocco}{13}
 \contentsline {subsubsection}{Terzo blocco}{16}
@@ -35,11 +35,12 @@
 \contentsline {subsection}{\numberline {3.2.2}Block Diagram}{32}
 \contentsline {chapter}{\numberline {4}Realizzazione del progetto}{35}
 \contentsline {section}{\numberline {4.1}Approccio iniziale}{35}
-\contentsline {section}{\numberline {4.2}Struttura del progetto}{35}
+\contentsline {section}{\numberline {4.2}Struttura del progetto}{36}
 \contentsline {section}{\numberline {4.3}Front Panel}{36}
 \contentsline {section}{\numberline {4.4}Block Diagram}{39}
 \contentsline {subsection}{\numberline {4.4.1}Descrizione subVI}{42}
-\contentsline {chapter}{\numberline {5}Conclusioni}{49}
-\contentsline {section}{\numberline {5.1}Risultati ottenuti}{49}
-\contentsline {section}{\numberline {5.2}Sviluppi futuri}{50}
-\contentsline {chapter}{Bibliografia}{51}
+\contentsline {section}{\numberline {4.5}Prova di utilizzo del programma}{44}
+\contentsline {chapter}{\numberline {5}Conclusioni}{51}
+\contentsline {section}{\numberline {5.1}Risultati ottenuti}{51}
+\contentsline {section}{\numberline {5.2}Sviluppi futuri}{52}
+\contentsline {chapter}{Bibliografia}{53}

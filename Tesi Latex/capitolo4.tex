@@ -1,7 +1,7 @@
 \chapter{Realizzazione del progetto}
 \thispagestyle{empty}
 
-Gli strumenti coinvolti nel progetto sono quelli descritti nei capitoli precedenti, il monocromatore Jobin-Yvon HR460 e la fotocamera intensificata 4 Picos. Di seguito si descrive il programma realizzato per il controllo dei due strumenti attraverso un unico programma.
+Gli strumenti coinvolti nel progetto sono quelli descritti nei capitoli precedenti, il monocromatore Jobin-Yvon HR460, si veda la sottosezione \ref{subsec:descrizioneMonocromatoreStrumento}, e la fotocamera intensificata 4 Picos, accenno alla tecnologia della stessa nella sottosezione \ref{subsec:descrizioneFotocamera}. Di seguito si descrive il programma realizzato per il controllo dei due strumenti attraverso un unico programma.
 
 \section{Approccio iniziale}
 Avendo davanti un progetto già scritto e funzionante, anche se per una fotocamera diversa, il primo approccio è stato quello di cercare di integrare il vecchio programma sostituendo i subVI della fotocamera precedente con quelli della fotocamera attuale. Tale tentativo si è rivelato fin dall'inizio fallimentare in quanto il codice del vecchio progetto risulta troppo caotico e avviluppato per essere modificato senza operare ingenti cambiamenti. Si è quindi optato per una riscrittura completa del codice prendendo sempre spunto da quello già scritto per le parti riutilizzabili.
@@ -14,11 +14,10 @@ Avendo davanti un progetto già scritto e funzionante, anche se per una fotocamer
 	\label{fig:newProj_lvproj}
 \end{figure}
 Per rendere il programma maggiormente organico e comprensibile si è deciso di creare un progetto LabVIEW: in questo modo i file e i subVI coinvolti sono raggruppati in un unico progetto (figura \ref{fig:newProj_lvproj}), che risulta sicuramente più gestibile di un semplice insieme di file.\\
-Si è creato all'inizio un VI principale, un \textit{main} che ha lo stesso scopo dei \textit{main} degli altri linguaggi di programmazione. In seguito si è cercato di creare più subVI possibile per rendere il programma leggibile e ordinato. Si descriveranno più avanti i subVI contenuti nel progetto e i loro scopi.
+Si è creato all'inizio un VI principale, un \emph{Main.vi} che ha lo stesso scopo dei \textit{main} degli altri linguaggi di programmazione. In seguito si è cercato di creare più subVI possibile per rendere il programma leggibile e ordinato. Si descriveranno più avanti i subVI contenuti nel progetto e i loro scopi.
 
 \section{Front Panel}
-\textbf{Inserire foto del front panel}
-La struttura pensata per il front panel di questo progetto è quella dell'interfaccia grafica a \textit{tab} (controllo grafico di navigazione che permette all'utente di muoversi da un gruppo di controlli a un altro). Tale widget permette un'ideale suddivisione delle diverse aree di competenza del programma: di seguito verranno elencate con una descrizione degli elementi contenuti da ognuna.
+La struttura pensata per il front panel di questo progetto è quella dell'interfaccia grafica a \textit{tab} (controllo grafico di navigazione che permette all'utente di muoversi da un gruppo di controlli a un altro). Tale widget permette un'ideale suddivisione delle diverse aree di competenza del programma: di seguito verranno elencate con una descrizione degli elementi contenuti in ognuna.
 \begin{itemize}
 \begin{figure} [h]
 	\centering
@@ -40,17 +39,17 @@ La struttura pensata per il front panel di questo progetto è quella dell'interfa
 	\caption{Front Panel del progetto, tab \textit{Post Processing}}
 	\label{fig:newProj_fp_PostProc}
 \end{figure}
-	\item \textit{Post Processing}, figura \ref{fig:newProj_fp_PostProc}, permette di visualizzare lo spettro corrispondente all'immagine acquisita ed effettuare dei calcoli su tali dati. Con \textit{Waveform Integral} è possibile calcolare l'integrale della lunghezza d'onda su un certo intervallo. \textit{Peak Detector} consente di visualizzare il numero di picchi trovati al di sopra di una certa soglia di inserire e i loro valori. Attraverso il controllo \textit{Pixel To Average} è possibile scegliere il numero di pixel da con cui fare la media da visualizzare poi nel grafico. Sono stati mantenuti anche i controlli per acquisire il background e sottrarlo alla foto.
+	\item \textit{Post Processing}, figura \ref{fig:newProj_fp_PostProc}, permette di visualizzare lo spettro corrispondente all'immagine acquisita ed effettuare dei calcoli su tali dati. Con \textit{Waveform Integral} è possibile calcolare l'integrale della lunghezza d'onda su un certo intervallo. \textit{Peak Detector} consente di visualizzare il numero di picchi trovati al di sopra di una certa soglia da inserire e i loro valori. Attraverso il controllo \textit{Pixel To Average} è possibile scegliere il numero di pixel da con cui fare la media da visualizzare poi nel grafico. Sono stati mantenuti anche i controlli per acquisire il background e sottrarlo alla foto.
 	\begin{figure} [h]
 		\centering
 	\includegraphics[width=\linewidth]{img/MainSave.png}
 	\caption{Front Panel del progetto, tab \textit{Save}}
 	\label{fig:newProj_fp_Save}
 \end{figure}
-	\item \textit{Save}, figura \ref{fig:newProj_fp_Save}, presenta due controlli booleani: \textit{Save} salva i dati be formattati in un file di testo che può essere aperto successivamente con altri editor, \textit{Save Image} salva invece l'immagine vera e propria.
+	\item \textit{Save}, figura \ref{fig:newProj_fp_Save}, presenta due controlli booleani: \textit{Save} salva i dati ben formattati in un file di testo che può essere aperto successivamente con altri editor, \textit{Save Image} salva invece l'immagine vera e propria.
 \end{itemize}
-Al di fuori di questo controllo è presente un pannello dedicato all'inizializzazione degli strumenti. Il led \textit{Init} segnala che il monocromatore è stato inizializzato senza errori e viene visulizzata anche la versione del programma, in caso contrario si attiva il led \textit{Error Occured}. Sono presenti anche due controlli per specificare la connessione che si intende utilizzare verso la fotocamera: \textit{USB} per connetterla al calcolatori attraverso cavo USB, \textit{CameraLink} o \textit{Analog} per altre modalità di connessione non contemplate in questo progetto.\\
-Infine il bottone \textit{Exit} consente di arrestare il programma nel modo corretto.
+Al di fuori di questo controllo è presente un pannello dedicato all'inizializzazione degli strumenti. Il led \textit{Init} segnala che il monocromatore è stato inizializzato senza errori e viene visualizzata anche la versione del programma, in caso contrario si attiva il led \textit{Error Occured}. Sono presenti anche due controlli per specificare la connessione che si intende utilizzare verso la fotocamera: \textit{USB} per connetterla al calcolatore attraverso cavo USB, \textit{CameraLink} o \textit{Analog} per altre modalità di connessione non contemplate in questo progetto.\\
+Infine il bottone \textit{Exit} consente di arrestare il programma nel modo corretto rilasciando le risorse impiegate.
 
 \section{Block Diagram}
 \begin{figure} [h]
@@ -60,16 +59,16 @@ Infine il bottone \textit{Exit} consente di arrestare il programma nel modo corr
 	\label{fig:newProj_bd}
 \end{figure}
 Come detto sopra il programma è stato organizzato in un progetto che raggruppa tutti i subVI creati nel corso della scrittura del codice. Partendo dal VI principale \emph{Main.vi} si descrive il block diagram delineando poi nello specifico i singoli subVI.\\
-Il primo subVI che viene eseguito è \emph{InitMono.vi} che, come si può intuire dal nome, ha il compito di inizializzare il monocromatore; solo se tale subVI esegue restituendo nessun errore è possibile continuare con il resto del programma, del resto non avrebbe senso se lo strumento che deve generare il soggetto delle immagini non funziona correttamente. Se quindi non ci sono errori in fase di inizializzazione del monocromatore si entra in una case structure che racchiude tutto il resto del programma: per prima cosa viene eseguito il subVI di connessione alla fotocamera \emph{ConnectCamera.vi} il cui output entra poi in una flat sequence atta a visualizzare le impostazioni della fotocamera inserite l'ultima volta che è stata utilizzata. Successivamente si entra in un ciclo while per rilevare le azioni dell'utente; all'interno di questo ciclo si trova una case structure legata al \textit{tab control} che permette alla struttura di discriminare il codice in base alla tab selezionata dall'utente. La scelta di tale schema prende spunto dal design pattern di macchina a stati finiti: non è presente un enumerativo e non c'è una vera e propria sequenza che viene eseguita, ma lo schema generale ricorda tale pattern. Analizziamo quindi il codice eseguito nei quattro frame:
+Il primo subVI che viene eseguito è \emph{InitMono.vi} che, come si può intuire dal nome, ha il compito di inizializzare il monocromatore; solo se tale subVI esegue restituendo nessun errore è possibile continuare con il resto del programma, del resto non avrebbe senso se lo strumento che deve generare il soggetto delle immagini non funzionasse correttamente. Se quindi non ci sono errori in fase di inizializzazione del monocromatore si entra in una case structure che racchiude tutto il resto del programma: per prima cosa viene eseguito il subVI di connessione alla fotocamera \emph{ConnectCamera.vi} il cui output entra poi in una flat sequence atta a visualizzare le impostazioni della fotocamera inserite l'ultima volta che è stata utilizzata. Successivamente si entra in un ciclo while per rilevare le azioni dell'utente; all'interno di questo ciclo si trova una case structure legata al \textit{tab control} che permette alla struttura di discriminare il codice in base alla tab selezionata dall'utente. La scelta di tale schema prende spunto dal design pattern di macchina a stati finiti: non è presente un enumerativo e non c'è una vera e propria sequenza che viene eseguita, ma lo schema generale ricorda tale pattern. Analizziamo quindi il codice eseguito nei quattro frame:
 \begin{description}
-\item[Setting Mono] Figura \ref{fig:newProj_bd}. All'interno di un'ulteriore case structure viene eseguito il subVI \emph{SettingMono.vi}.
+\item[Setting Mono] Figura \ref{fig:newProj_bd}. All'interno di un'ulteriore case structure viene eseguito il subVI \emph{SettingMono.vi}, si faccia riferimento al codice descritto nella sezione \ref{sec:monocromatore_proj_singolo}.
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=\linewidth]{img/Main_acquireData.png}
 	\caption{Block Diagram del progetto, frame ``Acquire Data''}
 	\label{fig:newProj_bd_acquire}
 \end{figure}
-\item[Acquire Data] Figura \ref{fig:newProj_bd_acquire}. Per questa frame della case structure si è scelto di non creare subVI in quanto le variabili di input e output sarebbero state troppo numerose e avrebbero reso il codice incomprensibile. Viene quindi eseguito il codice per l'acquisizione delle immagini (si fa riferimento a quello spiegato nel capitolo precedente). Il ciclo per l'acquisizione viene arrestato anche se viene selezionata dall'utente un'altra tab.
+\item[Acquire Data] Figura \ref{fig:newProj_bd_acquire}. Per questo frame della case structure si è scelto di non creare subVI in quanto le variabili di input e output sarebbero state troppo numerose e avrebbero reso il codice incomprensibile. Viene quindi eseguito il codice per l'acquisizione delle immagini (si fa riferimento a quello spiegato nella sezione \ref{sec:fotocamera_proj_singolo}). Il ciclo per l'acquisizione viene arrestato anche se viene selezionata dall'utente un'altra tab.
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=\linewidth]{img/Main_postProc.png}
@@ -83,7 +82,7 @@ Il primo subVI che viene eseguito è \emph{InitMono.vi} che, come si può intuire 
 	\caption{Block Diagram del progetto, frame ``Save''}
 	\label{fig:newProj_bd_save}
 \end{figure}
-\item[Save] Figura \ref{fig:newProj_bd_save}. Questa frame contiene due opzioni di salvataggio: \textit{Save} per salvare i dati in un file di testo, \textit{Save Image} per salvare l'immagine.
+\item[Save] Figura \ref{fig:newProj_bd_save}. Questo frame contiene due opzioni di salvataggio: \textit{Save} per salvare i dati in un file di testo, \textit{Save Image} per salvare l'immagine.
 \end{description}
 I shift register del ciclo esterno sono cinque: \textit{Pixel} contiene la matrice di pixel che compone l'immagine, \textit{Connection} contiene tutte le informazioni relative alla fotocamera, \textit{Error Cluster} riporta gli eventuali errori generati dalla fotocamera, \textit{Width Array} è l'array che contiene i valori delle lunghezze d'onda, \textit{2D Array} è la matrice con i valori da inserire nel grafico dello spettro.\\
 Se infine viene arrestato il ciclo con il comando \textit{Exit}, viene eseguita l'ultima flat sequence che resetta i valori dei controlli di acquisizione delle immagini e viene eseguito anche il subVI \emph{ExitCamera.vi} per la chiusura graceful del programma e il rilascio delle risorse.
@@ -97,17 +96,17 @@ Si descrivono di seguito i singoli subVI e le loro funzionalità. Saranno analizz
 	\caption{Block Diagram del subVI \emph{InitMono.vi}}
 	\label{fig:newProj_bd_sub_initMono}
 \end{figure}
-\item[\textit{InitMono.vi}] Figura \ref{fig:newProj_bd_sub_initMono}. Il compito di questo subVI è quello di interrogare il monocromatore riportandolo al suo stato di default. Rispetto al codice presente nel progetto antecedente è stato leggermente modificato. Sono state eliminate tutte le flat sequence, che forzano il flusso logico dei dati. Dopo che è stato invocato il subVI del monocromatore \emph{Start Up.vi}, il led \textit{Init} viene impostato a true solo ed esclusivamente se non sono presenti errori nella matrice di errori restituita dallo stesso.
+\item[\textit{InitMono.vi}] Figura \ref{fig:newProj_bd_sub_initMono}. Il compito di questo subVI è quello di interrogare il monocromatore riportandolo al suo stato di default. Rispetto al codice presente nel progetto antecedente è stato leggermente modificato. Sono state eliminate tutte le flat sequence, che forzano il flusso logico dei dati. Dopo che è stato invocato il subVI del monocromatore \emph{Start Up.vi}, il led \textit{Init} viene impostato a true solo ed esclusivamente se non sono presenti errori nella matrice di errori restituita dallo stesso (si veda la sezione \ref{sec:monocromatore_proj_singolo}).
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=\linewidth]{img/SettingMonod.png}
 	\caption{Block Diagram del subVI \emph{SettingMono.vi}}
 	\label{fig:newProj_bd_sub_settingMono}
 \end{figure}
-\item[\textit{SettingMono.vi}] Figura \ref{fig:newProj_bd_sub_settingMono}. Anche questo subVI è stato modificato rispetto al codice precedente eliminando tutte le flat sequence. La descrizione di tale subVI è la stessa illustrata \textbf{---METTERE RIFERIMENTO---}
+\item[\textit{SettingMono.vi}] Figura \ref{fig:newProj_bd_sub_settingMono}. Anche questo subVI è stato modificato rispetto al codice precedente eliminando tutte le flat sequence (si veda la sezione \ref{sec:monocromatore_proj_singolo}).
 \begin{figure} [h]
 	\centering
-	\includegraphics[width=0.4\linewidth]{img/CreateImaged.png}
+	\includegraphics[width=0.6\linewidth]{img/CreateImaged.png}
 	\caption{Block Diagram del subVI \emph{CreateImage.vi}}
 	\label{fig:newProj_bd_sub_CreateImage}
 \end{figure}
@@ -132,7 +131,7 @@ Si descrivono di seguito i singoli subVI e le loro funzionalità. Saranno analizz
 	\caption{Block Diagram del subVI \emph{CreateSpectrum.vi}}
 	\label{fig:newProj_bd_sub_CreateSpectrum}
 \end{figure}
-\item[\textit{CreateSpectrum.vi}] Figura \ref{fig:newProj_bd_sub_CreateSpectrum}. Come si può intuire dal nome, l'output di questo subVI consiste in una matrice di valori che rappresentano lunghezze d'onda con rispettiva intensità dello spettro. I calcoli presenti sono stati riportati dal progetto precedente in quanto legati al monocromatore. È stato modificato il valore del numero di pixel della larghezza dell'immagine (1360) e il valore di pixel/nm (0.0047) (???).
+\item[\textit{CreateSpectrum.vi}] Figura \ref{fig:newProj_bd_sub_CreateSpectrum}. Come si può intuire dal nome, l'output di questo subVI consiste in una matrice di valori che rappresentano lunghezze d'onda con rispettiva intensità dello spettro. I calcoli presenti sono stati riportati dal progetto precedente in quanto legati al monocromatore (si veda la sottosezione \ref{subsubsec:bdSpectra_secondBlock}). È stato modificato il valore del numero di pixel della larghezza dell'immagine (1360) e il valore di $w$ (0.0047).
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=\linewidth]{img/FindMaxPeakWLFWHMd.png}
@@ -148,3 +147,19 @@ Si descrivono di seguito i singoli subVI e le loro funzionalità. Saranno analizz
 	\label{fig:newProj_bd_sub_icons}
 \end{figure}
 Nella figura \ref{fig:newProj_bd_sub_icons} si possono vedere le icone con input e output di tutti i subVI citati.
+
+\section{Prova di utilizzo del programma}
+Per provare l'effettivo funzionamento del programma, con l'ausilio di una lampada al mercurio e una fibra ottica, abbiamo fotografato lo spettro del mercurio. Dopo aver settato il monocromatore a $365nm$ di lunghezza d'onda, grating $2400$ e slit di entrata $0.6mm$, e la fotocamera con $3ms$ di tempo di esposizione e $820V$ di MCP Gain, abbiamo acquisito un'immagine.\\
+\begin{figure} [h]
+	\centering
+	\includegraphics[width=\linewidth]{img/ProvaPhoto.JPG}
+	\caption{Immagine dello spettro del mercurio acquisita con il progetto realizzato}
+	\label{fig:newProj_try_photo}
+\end{figure}
+Nella figura \ref{fig:newProj_try_photo} si possono vedere tre linee bianche di intensità decrescente che rappresentano lo spettro del mercurio; tale spettro si può vedere nella figura \ref{fig:newProj_try_spectrum} che mostra il grafico ottenuto dall'immagine. Lo spettro è formato da tre picchi, di cui uno di maggiore intensità rispetto agli altri due, e corrispondono alle tre linee che compaiono nell'immagine.
+\begin{figure} [h]
+	\centering
+	\includegraphics[width=\linewidth]{img/ProvaSpectrum.png}
+	\caption{Spettro del mercurio processato a partire dall'immagine acquisita con il progetto realizzato}
+	\label{fig:newProj_try_spectrum}
+\end{figure}

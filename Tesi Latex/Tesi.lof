@@ -30,11 +30,13 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Block Diagram del progetto, frame ``Post Processing''}}{43}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Block Diagram del progetto, frame ``Save''}}{44}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Block Diagram del subVI \emph {InitMono.vi}}}{45}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Block Diagram del subVI \emph {SettingMono.vi}}}{45}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Block Diagram del subVI \emph {SettingMono.vi}}}{46}
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Block Diagram del subVI \emph {CreateImage.vi}}}{46}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Block Diagram del subVI \emph {PeaksDetector.vi}}}{46}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Block Diagram del subVI \emph {PeaksDetector.vi}}}{47}
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Block Diagram del subVI \emph {FindWaveformIntegral.vi}}}{47}
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Block Diagram del subVI \emph {CreateSpectrum.vi}}}{47}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Block Diagram del subVI \emph {FindMaxPeak\&WL\&FWHM.vi}}}{47}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Block Diagram del subVI \emph {FindMaxPeak\&WL\&FWHM.vi}}}{48}
 \contentsline {figure}{\numberline {4.17}{\ignorespaces Icone dei subVI del progetto}}{48}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Immagine dello spettro del mercurio acquisita con il progetto realizzato}}{49}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Spettro del mercurio processato a partire dall'immagine acquisita con il progetto realizzato}}{50}
 \addvspace {10\p@ }
